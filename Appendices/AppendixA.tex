@@ -24,25 +24,25 @@ public class Enemy : MonoBehaviour {
 	public float spawnMoveSpeed;
 	public float jumpAttackDistance;
 
-    //Speed variables depending on the emotional state
+    #Variables de la vitesse dépendantes de l'état de l'émotion
     public float walkspeed;
     public float angryspeed;
     public float joyspeed;
     public float sadspeed;
     public float fearspeed;
 
-    //Couleurs dépendants de l'émotion ( selon la roue des emotions de Robert Plutchik)
+    #Couleurs dépendantes de l'émotion ( selon la roue des émotions de Robert Plutchik)
     public Color normalColor;
-    public Color angryColor; //Rouge
-    public Color joyColor;  //Jaune
-    public Color sadColor; //Bleu
-    public Color fearColor; //Vert
+    public Color angryColor; #Rouge
+    public Color joyColor;  #Jaune
+    public Color sadColor; #Bleu
+    public Color fearColor; #Vert
 
     Transform player;
 	MoveArea area;
 	GameManager manager;
 
-    // Les émotions primaires 
+    #Les émotions primaires 
     bool spawned;
     bool angry;
     bool joy;
@@ -90,8 +90,8 @@ public class Enemy : MonoBehaviour {
 			return;
 		}
 
-        // Si le tireur atteint l'une des cibles
-        // - les cibles passent en état de colère ( couleur rouge ) et contrattaque 
+        # Si le tireur atteint l'une des cibles,
+        #les cibles passent en état de colère ( couleur rouge ) et contrattaquent  
         if (angry && player != null){
 			agent.CalculatePath(player.position, path);
 			
@@ -128,8 +128,8 @@ public class Enemy : MonoBehaviour {
          
         }
 
-        // Si la distance entre le tireur et les cibles est assez élévé
-        // - les cibles passent en état de joie ( couleur jaune ) et diminuent leur vitesse
+        # Si la distance entre le tireur et les cibles est assez  
+        #élevée, les cibles passent en état de joie ( couleur jaune ) et diminuent leur vitesse
         else if (Vector3.Distance(transform.position, player.position) > agent.stoppingDistance +20f)
         {
             rend.material.color = joyColor;
@@ -138,8 +138,8 @@ public class Enemy : MonoBehaviour {
 
         }
 
-        // Si le tireurse se rapproche des cibles ,
-        //les cibles passent en état de tristesse(couleur bleue) et fuient 
+        # Si le tireur se rapproche des cibles ,
+        #les cibles passent en état de tristesse(couleur bleue) et fuient 
         else if (Vector3.Distance(transform.position, player.position) > agent.stoppingDistance + 14f)
         {
             rend.material.color = sadColor;
@@ -147,8 +147,8 @@ public class Enemy : MonoBehaviour {
             RandomWalk();
         }
 
-        // Si le tireurse se rapproche des cibles ,
-        //les cibles passent en état de peur (couleur rouge) et fuient (augmentent leur vitesse)
+        # Si le tireur se rapproche des cibles ,
+        #les cibles passent en état de peur (couleur rouge) et fuient (augmentent leur vitesse)
         else if (Vector3.Distance(transform.position, player.position) > agent.stoppingDistance + 8f)
         {
             rend.material.color = fearColor;
@@ -186,7 +186,7 @@ public class Enemy : MonoBehaviour {
 		Instantiate(bloodEffect, transform.position + Vector3.up * 1.5f, transform.rotation);
         if (angry){
 			Die();
-            // Si l'une des cibles est éliminée, les autres passent en état de tristesse
+            # Si l'une des cibles est éliminée, les autres passent en état de tristesse
         }
 		else{
 			angry = true;
