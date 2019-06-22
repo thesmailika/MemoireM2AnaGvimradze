@@ -1,4 +1,3 @@
-% Chapter Template
 
 \chapter{Contribution} % Main chapter title
 
@@ -27,7 +26,7 @@ L'idée principale derrière est de complètement transformer les mécanismes qu
 
 Le but du joueur est d’atteindre le moins de personnages extraterrestres pour ne pas les contrarier.
 
-Plus les extraterrestres sont touchés, plus le jeu sera difficile, car le joueur devra les frapper une seconde fois pour les arrêter. 
+Plus les extraterrestres sont touchés, plus le jeu sera difficile, car le joueur devra les frapper une seconde fois pour les arrêter. [Figure \ref{fig:7.2}] 
 
 La victoire est basée sur le fait d’accumuler le plus de points possible en allant de checkpoint en checkpoint.
 
@@ -35,7 +34,7 @@ La victoire est basée sur le fait d’accumuler le plus de points possible en a
 \centering
 \includegraphics{Figures/72unity.JPG}
 \decoRule
-\caption[Icon du jeu]{Icon du jeu Do Not Shoot Aliens}
+\caption[Icon du jeu "Do Not Shoot Aliens"]{Icon du jeu "Do Not Shoot Aliens"}
 \label{fig:7.2}
 \end{figure}
 
@@ -49,7 +48,7 @@ Ce langage est orienté objet, ce qui fait sens car tous les objets, environneme
 
 \section{Description des agents autonomes présents dans le jeu}
 
-Le scénario typique pour la formation d’agents dans des environnements virtuels consiste à avoir un environnement et un agent uniques qui sont étroitement couplés. Les actions de l'agent modifient l'état de l'environnement et lui procurent des récompenses.[source => blog unity tout en bas]
+Le scénario typique pour la formation d’agents dans des environnements virtuels consiste à avoir un environnement et un agent uniques qui sont étroitement couplés. Les actions de l'agent modifient l'état de l'environnement et lui procurent des récompenses. \parencite{unity2}  
 
 ~\par
 Dans notre cas, les agents ont pour environnement l’esplanade sur laquelle ils circulent, ils peuvent effectuer des actions par exemple:  marcher doucement, courir ou encore attaquer.
@@ -75,7 +74,7 @@ Comme vu précédemment, tout changement dans leur environnement peut produire u
 
 \section{Application de paramètres de prises de décisions en milieu naturel (NDM) aux agents BDI}
 
-Afin d’appliquer ces paramètres, je procède de la manière suivante: 
+Afin d’appliquer ces paramètres, je procède de la manière suivante [Figure \ref{fig:75}] : 
 
 \begin{itemize}
 \item Je déclare des paramètres qui permettent d’évaluer l’état émotionnel des agents lors des différents changements de l’environnement.
@@ -84,14 +83,14 @@ Afin d’appliquer ces paramètres, je procède de la manière suivante:
 \item En l'occurrence, la couleur associée à la joie est le jaune.
 \item Celle associée à la tristesse est le bleue.
 \item Celle associée à la colère est le rouge.
-\item Celle associée à la peur est le vert.
-\end{itemize}
+\item Celle associée à la peur est le vert. [Figure \ref{fig:751u}, Page \pageref{fig:751u}]
+\end{itemize} 
 
 \begin{figure}[th]
 \centering
 \includegraphics{Figures/75unity.JPG}
 \decoRule
-\caption[Code Source]{Déclaration des variables}
+\caption[Déclaration des variables]{Déclaration des variables}
 \label{fig:75}
 \end{figure}
 
@@ -101,8 +100,8 @@ Afin d’appliquer ces paramètres, je procède de la manière suivante:
 \centering
 \includegraphics{Figures/751unity.JPG}
 \decoRule
-\caption[Fenêtre Unity]{Fenêtre Unity, Valeurs des paramètres}
-\label{fig:751}
+\caption[Fenêtre Unity, Valeurs des paramètres]{Fenêtre Unity, Valeurs des paramètres}
+\label{fig:751u}
 \end{figure}
 
 
@@ -125,7 +124,7 @@ Lors de ma première expérimentation, j’ai décidé d’établir une distance
 La distance est exprimée ici par la position de l’agent en mode “stop” ou à l'arrêt (qui survient lorsque l’agent rencontre sur son chemin ou “path” le joueur) et le joueur lui-même, à laquelle on ajoute un delta en nombre flottant représenté ici par le 8f, il suffit ensuite de varier ce nombre flottant afin d’augmenter ou de diminuer le delta, et de calculer la distance qui sépare les agents autonomes(plus ou moins loin selon le delta) du joueur. 
 
 ~\par
-Le résultat souhaité est de pouvoir appliquer un changement de couleur aux agents suivant l’émotion qu’ils ressentent, dans la figure ci-dessus, c’est la peur, la couleur de l’agent prend donc la couleur associée à la peur ( le vert Figure ci-dessous) une fois que ce dernier est à une distance équivalente à un delta de 8, ce dernier change aussi de vitesse de démarche et adopte un rythme plus élevée lui permettant d'échapper au joueur au fur et à mesure que celui-ci se rapproche.( la vitesse liée à la peur est plus élevé que celle liée à “démarche dite normale comme le montre la figure-fenêtre-unity”).
+Le résultat souhaité est de pouvoir appliquer un changement de couleur aux agents suivant l’émotion qu’ils ressentent, dans la figure \ref{fig:751}, c’est la peur, la couleur de l’agent prend donc la couleur associée à la peur [Figure \ref{fig:bichi1}] une fois que ce dernier est à une distance équivalente à un delta de 8, ce dernier change aussi de vitesse de démarche et adopte un rythme plus élevée lui permettant d'échapper au joueur au fur et à mesure que celui-ci se rapproche.( la vitesse liée à la peur est plus élevé que celle liée à “démarche dite normale comme le montre la figure-fenêtre-unity”).
 
 
 \begin{figure}[th]
@@ -133,7 +132,7 @@ Le résultat souhaité est de pouvoir appliquer un changement de couleur aux age
 \includegraphics{Figures/bichi1.JPG}
 \decoRule
 \caption[Visualisation d'agents en état de peur]{Visualisation d'agents en état de peur}
-\label{fig:bichi}
+\label{fig:bichi1}
 \end{figure}
 
 
@@ -141,14 +140,14 @@ Le résultat souhaité est de pouvoir appliquer un changement de couleur aux age
 \subsection{Deuxième expérimentation}
 
 On ajoute cette fois-ci à l'expérience précédente un nouveau facteur émotionnel, celui de la joie.
-Suivant le même principe que précédemment, on définit un delta qui permet de calculer la distance entre le joueur et l’agent autonome, celui-ci est de 20f, une distance assez élévée. 
+Suivant le même principe que précédemment, on définit un delta qui permet de calculer la distance entre le joueur et l’agent autonome, celui-ci est de 20f, une distance assez élévée. [Figure \ref{fig:fonct2}]
 
 \begin{figure}[th]
 \centering
 \includegraphics{Figures/fonct2.JPG}
 \decoRule
 \caption[Code source implémentant une longue distance]{Code source implémentant une longue distance entre le jouer et l'agent}
-\label{fig:bichi}
+\label{fig:fonct2}
 \end{figure}
 
 
@@ -157,20 +156,20 @@ Suivant le même principe que précédemment, on définit un delta qui permet de
 Le résultat souhaité est de pouvoir appliquer un changement de couleur aux agents à l’instant où cette distance entre eux et le joueur est atteints.
 
 ~\par
-La couleur de ces derniers devient alors jaune, et leur vitesse passe à un rythme beaucoup moins élevée.
+La couleur de ces derniers devient alors jaune, et leur vitesse passe à un rythme beaucoup moins élevée. [Figure \ref{fig:bichi2}]
 
 \begin{figure}[th]
 \centering
 \includegraphics{Figures/bichi2.JPG}
 \decoRule
 \caption[Visualisation d'agents en état de joie]{Visualisation d'agents en état de joie}
-\label{fig:bichi}
+\label{fig:bichi2}
 \end{figure}
 
 
 \subsection{Troisième expérimentation}
 
-On ajoute cette fois-ci à l'expérience précédente un autre facteur émotionnel, celui de la tristesse, ce dernier intervient lorsque la distance équivaut à la valeur médiane entre les deux distances précédentes, c’est-à-dire un delta de 14f.
+On ajoute cette fois-ci à l'expérience précédente un autre facteur émotionnel, celui de la tristesse, ce dernier intervient lorsque la distance équivaut à la valeur médiane entre les deux distances précédentes, c’est-à-dire un delta de 14f. [Figure \ref{fig:333f}]
 
 
 \begin{figure}[th]
@@ -178,7 +177,7 @@ On ajoute cette fois-ci à l'expérience précédente un autre facteur émotionn
 \includegraphics{Figures/333f.JPG}
 \decoRule
 \caption[Code source implémentant une distance médiane]{Code source implémentant une distance médiane entre le jouer et l'agent}
-\label{fig:bichi}
+\label{fig:333f}
 \end{figure}
 
 ~\par
@@ -186,19 +185,19 @@ Le résultat souhaité est de pouvoir appliquer un changement de couleur aux age
 
 
 ~\par
-La couleur de ces derniers devient alors bleue, et leur vitesse passe à un rythme un peu plus soutenu que celui généré par la joie.
+La couleur de ces derniers devient alors bleue, et leur vitesse passe à un rythme un peu plus soutenu que celui généré par la joie. [Figure \ref{fig:bichi3}]
 
 \begin{figure}[th]
 \centering
 \includegraphics{Figures/bleu.JPG}
 \decoRule
 \caption[Visualisation d'agents en état de tristesse]{Visualisation d'agents en état de tristesse}
-\label{fig:bichi}
+\label{fig:bichi3}
 \end{figure}
 
 
 ~\par
-Ajoutons à tout cela, le comportement présent dans le code source du jeu, à savoir la colère, celle-ci génère une vitesse plus élevée que toutes les autres chez l’agent autonome, et une couleur noire(définie par moi), en plus de cela, elle change le centre d'intérêt du joueur en terme de démarche, jusque-là ce dernier se déplaçait de manière hasardeuse grâce à la fonction RandomWalk(), une fois le sentiment de colère déclenché, son point d’arrivée se rattache à la position du joueur(comme le montre la figure ci-dessous).
+Ajoutons à tout cela, le comportement présent dans le code source du jeu [Figure \ref{fig:derfon}], à savoir la colère, celle-ci génère une vitesse plus élevée que toutes les autres chez l’agent autonome, et une couleur noire(définie par moi), en plus de cela, elle change le centre d'intérêt du joueur en terme de démarche, jusque-là ce dernier se déplaçait de manière hasardeuse grâce à la fonction RandomWalk(), une fois le sentiment de colère déclenché, son point d’arrivée se rattache à la position du joueur(comme le montre la figure \ref{fig:bichi4} sur la page \pageref{fig:bichi4}).
 
 
 
@@ -207,7 +206,7 @@ Ajoutons à tout cela, le comportement présent dans le code source du jeu, à s
 \includegraphics{Figures/derfon.JPG}
 \decoRule
 \caption[Code source implémentant la réaction d'un agent en état de colère]{Code source implémentant la réaction d'un agent en état de colère}
-\label{fig:bichi}
+\label{fig:derfon}
 \end{figure}
 
 
@@ -217,7 +216,7 @@ Ajoutons à tout cela, le comportement présent dans le code source du jeu, à s
 \includegraphics{Figures/rouge.JPG}
 \decoRule
 \caption[Visualisation d'agents en état de colère]{Visualisation d'agents en état de colère}
-\label{fig:bichi}
+\label{fig:bichi4}
 \end{figure}
 
 \section{Résultat général (positif/négatifs)}
