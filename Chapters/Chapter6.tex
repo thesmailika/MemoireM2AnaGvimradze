@@ -16,19 +16,19 @@ Unity est le logiciel que j'utilise pour développer mon framework, c’est est 
 En terme d’intelligence artificielle, ce dernier propose une multitude de fonctionnalités, notamment basées sur l’apprentissage (Machine Learning) afin de construire des agents autonomes, conscients de leur environnement et qui interagissent avec ce dernier selon des paramètres précis, objectifs, actions et réactions.
 
 ~\par
-L’un des facteurs qui m’a poussé à l’utiliser et vient du fait qu'il a la particularité de proposer une licence gratuite dite « Personnelle » avec quelques limitations de technologie avancée au niveau de l'éditeur, mais sans limitation au niveau du moteur.  
+L’un des facteurs qui m’a poussé à l’utiliser vient du fait qu'il a la particularité de proposer une licence gratuite dite « Personnelle » avec quelques limitations de technologie avancée au niveau de l'éditeur, mais sans limitation au niveau du moteur.  
 
 
 
 \section{Le Jeu open source “Do not shoot Aliens” - Jeu Mobile}
 
-L'idée principale derrière est de complètement transformer les mécanismes que l’on attend d'un jeu de tir classique, en effet,  au lieu de viser et de tirer afin de vaincre ses ennemis, le personnage du joueur est un peu agressif et décide de tirer sur tout ce qui est autour de lui. 
+L'idée principale derrière est de complètement transformer les mécanismes que l’on attend d'un jeu de tir classique. En effet, au lieu de viser et de tirer afin de vaincre ses ennemis, le personnage du joueur est un peu agressif et décide de tirer sur tout ce qui est autour de lui (figure \ref{fig:7.2}). 
 
 Le but du joueur est d’atteindre le moins de personnages extraterrestres pour ne pas les contrarier.
 
-Plus les extraterrestres sont touchés, plus le jeu sera difficile, car le joueur devra les frapper une seconde fois pour les arrêter. [Figure \ref{fig:7.2}] 
+Plus les extraterrestres sont touchés, plus le jeu sera difficile, car le joueur devra les frapper une seconde fois pour les arrêter. 
 
-La victoire est basée sur le fait d’accumuler le plus de points possible en allant de check-point en check-point.
+La victoire est basée sur le fait d’accumuler le plus de points possible en allant de check-point (point de contrôle) en check-point.
 
 \begin{figure}[th]
 \centering
@@ -40,10 +40,10 @@ La victoire est basée sur le fait d’accumuler le plus de points possible en a
 
 \section{Langage de programmation}
 
-Chaque agent de ce jeu, que ce soit le personnage principal contrôlé par le joueur ou les agents autonomes représentés ici par les ennemis, ainsi que l’environnement et les objets avec lesquels les agents interagissent, est géré par un code source qui lui est propre, ce dernier est écrit en C-Sharp et associé à l'agent concerné via l'interface graphique de Unity, l'avantage de ce langage compilé est le gain de performances.
+Chaque agent de ce jeu, que ce soit le personnage principal contrôlé par le joueur ou les agents autonomes représentés ici par les ennemis, ainsi que l’environnement et les objets avec lesquels les agents interagissent, est géré par un code source qui lui est propre, ce dernier est écrit en C\# et associé à l'agent concerné via l'interface graphique de Unity, l'avantage de ce langage compilé est le gain de performances.
 
 ~\par
-Ce langage est orienté objet, ce qui fait sens car tous les objets, environnements, agents ou encore joueurs sont effectivement des objets 3D, ayant des paramètres qui leur sont propres ( Vitesse, durée de vie, couleur, objectif ) ainsi que de nombreuses fonctions ( marcher, courir, frapper, sauter etc…) qui leur permettent d’effectuer des actions, cette définition nous renvoie aux concepts de classe, variables de classe et méthodes de classe présentes dans les langages orientés objet.
+Ce langage est orienté objet, ce qui fait sens car tous les objets, environnements, agents ou encore joueurs sont effectivement des objets 3D, ayant des paramètres qui leur sont propres (vitesse, durée de vie, couleur, objectif ) ainsi que de nombreuses fonctions (marcher, courir, frapper, sauter etc.) qui leur permettent d’effectuer des actions. Cette définition nous renvoie aux concepts de classe, variables de classe et méthodes de classe présentes dans les langages orientés objet.
 
 
 \section{Description des agents autonomes présents dans le jeu}
@@ -60,12 +60,12 @@ Leur objectif initial est celui de circuler sur l'esplanade, en effet, tant qu�
 ~\par
 Par contre s'ils venaient à être touchés par les balles du joueur principal, leur comportement change et leur objectif aussi, ils se concentrent alors principalement sur l’attaque du personnage principal afin de s’en débarrasser.
 
-On peut identifier ici un exemple de BDI (décrit plus haut): 
+On peut identifier ici un exemple de BDI : 
 
 \begin{itemize}
-\item Leur "Belief" ( ou croyance ) initiale est de croire que leur environnement est inoffensif, c’est leur vision du monde.
-\item Ce qui engendre leurs désires ou encore leurs objectifs, qui est de circuler dans l’environnement qui les entoure, ceux-ci décrivent l'état du monde parfait dans lequel ils aimeraient évoluer.
-\item Leur "Intention" est ici le plan d’action en cours d'exécution, c’est-à-dire, le fait de déambuler sur l’esplanade.
+\item leur "Belief" (ou croyance) initiale est de croire que leur environnement est inoffensif, c’est leur vision du monde;
+\item ce qui engendre leurs désires ou encore leurs objectifs, qui est de circuler dans l’environnement qui les entoure, ceux-ci décrivent l'état du monde parfait dans lequel ils aimeraient évoluer;
+\item leur "Intention" est ici le plan d’action en cours d'exécution, c’est-à-dire, le fait de déambuler sur l’esplanade.
 \end{itemize}
 
 
@@ -74,16 +74,13 @@ Comme vu précédemment, tout changement dans leur environnement peut produire u
 
 \section{Application de paramètres de prise de décisions en milieu naturel (NDM) aux agents BDI}
 
-Afin d’appliquer ces paramètres, je procède de la manière suivante [Figure \ref{fig:75}] : 
+Afin d’appliquer ces paramètres, je procède de la manière suivante (figure \ref{fig:75}) : 
 
 \begin{itemize}
-\item Je déclare des paramètres qui permettent d’évaluer l’état émotionnel des agents lors des différentes phases de changement de l’environnement.
-\item Ces variables sont: la peur, la joie, la tristesse et la colère qui sont des booléens.
-\item Chaqu’une de ces variables possède à son tour des paramètre qui lui sont propres: la vitesse de la démarche, ainsi qu'une couleur qui est attribuée aux agents lorsqu'il ressentent l'une de ces émotions.
-\item En l'occurrence, la couleur associée à la joie est le jaune.
-\item Celle associée à la tristesse est le bleue.
-\item Celle associée à la colère est le rouge.
-\item Celle associée à la peur est le vert. [Figure \ref{fig:751u}, Page \pageref{fig:751u}]
+\item je déclare des paramètres qui permettent d’évaluer l’état émotionnel des agents lors des différentes phases de changement de l’environnement;
+\item ces variables sont: la peur, la joie, la tristesse et la colère qui sont des booléens;
+\item ces variables possède à son tour des paramètres qui lui sont propres: la vitesse de la démarche, ainsi qu'une couleur qui est attribuée aux agents lorsqu'il ressentent l'une de ces émotions;
+\item en l'occurrence, la couleur associée à la joie est le jaune; celle associée à la tristesse est le bleue; celle associée à la colère est le rouge; celle associée à la peur est le vert (figure \ref{fig:751u}, page \pageref{fig:751u}).
 \end{itemize} 
 
 \begin{figure}[th]
@@ -107,24 +104,24 @@ Afin d’appliquer ces paramètres, je procède de la manière suivante [Figure 
 
 \subsection{Première expérimentation}
 
-Lors de ma première expérimentation, j’ai décidé d’établir une distance critique entre le joueur et les agents autonomes, lorsque ce dernier est très proche d’eux, qui serait synonyme de tristesse pour ces derniers, sentiment lié au fait de savoir que le jour peut à tout moment les toucher.
+Lors de ma première expérimentation, j’ai décidé d’établir une distance critique entre le joueur et les agents autonomes. Le fait que le joueur est très proche d’eux, serait synonyme de tristesse pour ces derniers, sentiment lié au fait de savoir que le joueur peut à tout moment les toucher.
 
 
 \begin{figure}[th]
 \centering
 \includegraphics{Figures/fonctdist.JPG}
 \decoRule
-\caption[Code source implémentant une courte distance ]{Code source implémentant une courte distance entre le jouer et l'agent}
+\caption[Code source implémentant une courte distance ]{Code source implémentant une courte distance entre le joueur et l'agent}
 \label{fig:751}
 \end{figure}
 
 
 
 ~\par
-La distance est exprimée ici par la différence entre la position de l’agent en mode “stop” ou à l'arrêt et le joueur lui-même, à laquelle on ajoute un delta, un nombre flottant représenté ici par le 8f, il suffit ensuite de varier ce nombre flottant afin d’augmenter ou de diminuer le delta, et de calculer la distance qui sépare les agents autonomes (plus ou moins grande selon le delta) du joueur. 
+La distance est exprimée ici par la différence entre la position de l’agent en mode “stop” ou à l'arrêt et le joueur lui-même, à laquelle on ajoute un delta, un nombre flottant représenté ici par le 8f. Il suffit ensuite de varier ce nombre flottant afin d’augmenter ou de diminuer le delta et de calculer la distance qui sépare les agents autonomes (plus ou moins grande selon le delta) du joueur. 
 
 ~\par
-Le résultat souhaité est de pouvoir visualiser un changement de couleur aux agents suivant l’émotion qu’ils ressentent, dans la figure \ref{fig:751}, c’est la peur, la couleur de l’agent prend donc la couleur associée à la peur (le vert) [Figure \ref{fig:bichi1}], une fois que ce dernier est à une distance équivalente à un delta de 8. Ce dernier change aussi de vitesse de démarche et adopte un rythme plus élevé lui permettant d'échapper au joueur au fur et à mesure que celui-ci se rapproche. ( La vitesse liée à la peur est plus élevée que celle liée à la démarche dite "normale", ceci est exprimé sur la figure \ref{fig:751u} ).
+Le résultat souhaité est de pouvoir visualiser un changement de couleur aux agents suivant l’émotion qu’ils ressentent, dans la figure \ref{fig:751}, c’est la peur, la couleur de l’agent prend donc la couleur associée à la peur (le vert, figure \ref{fig:bichi1}), une fois que ce dernier est à une distance équivalente à un delta de 8. Ce dernier change aussi de vitesse de démarche et adopte un rythme plus élevé lui permettant d'échapper au joueur au fur et à mesure que celui-ci se rapproche. La vitesse liée à la peur est plus élevée que celle liée à la démarche dite "normale", ceci est exprimé sur la figure \ref{fig:751u}.
 
 
 \begin{figure}[th]
@@ -140,23 +137,23 @@ Le résultat souhaité est de pouvoir visualiser un changement de couleur aux ag
 \subsection{Deuxième expérimentation}
 
 On ajoute cette fois-ci à l'expérience précédente un nouveau facteur émotionnel, celui de la joie.
-Suivant le même principe que précédemment, on définit un delta qui permet de calculer la distance entre le joueur et l’agent autonome, celui-ci est de 20f, une distance que l'on considérera comme élevée par rapport à la taille du terrain. [Figure \ref{fig:fonct2}]
+Suivant le même principe que précédemment, on définit un delta qui permet de calculer la distance entre le joueur et l’agent autonome, celui-ci est de 20f, une distance que l'on considérera comme élevée par rapport à la taille du terrain (figure \ref{fig:fonct2}).
 
 \begin{figure}[th]
 \centering
 \includegraphics{Figures/fonct2.JPG}
 \decoRule
-\caption[Code source implémentant une longue distance]{Code source implémentant une longue distance entre le jouer et l'agent}
+\caption[Code source implémentant une longue distance]{Code source implémentant une longue distance entre le joueur et l'agent}
 \label{fig:fonct2}
 \end{figure}
 
 
 
 ~\par
-Le résultat souhaité est de pouvoir visualiser un changement de couleur sur les agents à l’instant où cette distance atteinte.
+Le résultat souhaité est de pouvoir visualiser un changement de couleur sur les agents à l’instant où cette distance est atteinte.
 
 ~\par
-La couleur de ces derniers devient alors jaune, et leur vitesse passe à un rythme beaucoup moins élevée. [Figure \ref{fig:bichi2}]
+La couleur de ces derniers devient alors jaune, et leur vitesse passe à un rythme beaucoup moins élevée (figure \ref{fig:bichi2}).
 
 \begin{figure}[th]
 \centering
@@ -169,14 +166,14 @@ La couleur de ces derniers devient alors jaune, et leur vitesse passe à un ryth
 
 \subsection{Troisième expérimentation}
 
-On ajoute cette fois-ci à l'expérience précédente un autre facteur émotionnel, celui de la tristesse, ce dernier intervient lorsque la distance équivaut à la valeur médiane entre les deux distances précédentes, c’est-à-dire un delta de 14f. [Figure \ref{fig:333f}]
+On ajoute cette fois-ci à l'expérience précédente un autre facteur émotionnel, celui de la tristesse, ce dernier intervient lorsque la distance équivaut à la valeur médiane entre les deux distances précédentes, c’est-à-dire un delta de 14f (figure \ref{fig:333f}).
 
 
 \begin{figure}[th]
 \centering
 \includegraphics{Figures/333f.JPG}
 \decoRule
-\caption[Code source implémentant une distance médiane]{Code source implémentant une distance médiane entre le jouer et l'agent}
+\caption[Code source implémentant une distance médiane]{Code source implémentant une distance médiane entre le joueur et l'agent}
 \label{fig:333f}
 \end{figure}
 
@@ -185,7 +182,7 @@ Le résultat souhaité est de pouvoir visualiser un changement de couleur sur le
 
 
 ~\par
-La couleur de ces derniers devient alors bleue, et leur vitesse passe à un rythme un peu plus soutenu que celui généré par la joie. [Figure \ref{fig:bichi3}]
+La couleur de ces derniers devient alors bleue, et leur vitesse passe à un rythme un peu plus soutenu que celui généré par la joie (figure \ref{fig:bichi3}).
 
 \begin{figure}[th]
 \centering
@@ -197,7 +194,7 @@ La couleur de ces derniers devient alors bleue, et leur vitesse passe à un ryth
 
 
 ~\par
-Ajoutons à cela, le comportement présent dans le code source du jeu [Figure \ref{fig:derfon}], à savoir la colère, cette émotion génère une vitesse plus élevée que toutes les autres chez l’agent autonome, et une couleur noire(définie par mes soins), en plus de cela, elle change le centre d'intérêt du joueur ainsi que sa démarche, en effet, jusque-là, ce dernier se déplaçait de manière hasardeuse grâce à la fonction RandomWalk(), une fois le sentiment de colère déclenché, son point d’arrivée se rattache instantanément à la position du joueur(comme le montre la figure \ref{fig:bichi4} sur la page \pageref{fig:bichi4}).
+Ajoutons à cela, le comportement présent dans le code source du jeu (figure \ref{fig:derfon}), à savoir que la colère génère une vitesse plus élevée que toutes les autres émotions chez l’agent autonome et une couleur rouge. En plus de cela, elle change le centre d'intérêt de l'agent. En effet, jusque-là, ce dernier se déplaçait de manière hasardeuse grâce à la fonction RandomWalk(), une fois le sentiment de colère déclenché, son point d’arrivée se rattache instantanément à la position du joueur (comme le montre la figure \ref{fig:bichi4} sur la page \pageref{fig:bichi4}).
 
 
 
@@ -231,7 +228,7 @@ Les résultats suites à ces tests sont plutôt concluants, et confirment l’hy
 
 
 ~\par
-Le passage entre les différentes émotions fonctionne quant à lui aussi très bien, par exemple, si le joueur se rapproche beaucoup des agents, ceux-ci prennent peur et changent leurs démarches afin d’aller plus vite et de fuir, mais si l’agent s’éloigne d’eux, les agents reprennent petit à petit une démarche normale, en passant par différents états émotionnels, qui sont représentés visuellement par les différentes couleurs, jusqu’à ce que la distance les séparant soit assez élevée pour qu’ils puissent considérer qu’il n’y a plus de danger.
+Le passage entre les différentes émotions fonctionne quant à lui aussi très bien. Par exemple, si le joueur se rapproche beaucoup des agents, ceux-ci prennent peur et changent leurs démarches afin d’aller plus vite et de fuir. Mais si le joueur s’éloigne d’eux, les agents reprennent petit à petit une démarche normale, en passant par différents états émotionnels, qui sont représentés visuellement par les différentes couleurs, jusqu’à ce que la distance les séparant soit assez élevée pour qu’ils puissent considérer qu’il n’y a plus de danger.
 
 
 ~\par
@@ -242,11 +239,4 @@ On peut remarquer que les prises de décisions sont donc peu “rationnels”, e
 L’un des points négatifs est le passage d’une émotion à une autre qui n’est, à mon sens, pas assez réaliste, en effet dans la réalité, un agent humain peut mettre plusieurs minutes, plusieurs heures voient plusieurs jours ou mois pour passer d’une émotion à une autre, ou se débarrasser d’une émotion désagréable liée à des situations particulières telles que des traumatismes.
 
 ~\par
-Pouvoir appliquer cela dans un jeu vidéo, implique d'après moi d’ajouter des facteurs temporels à chaque émotion: facteur temporel d'acquisition de l’émotion et facteur temporel de disparition(dismiss) de l’émotion, ainsi qu'un facteur d’intensité, en effet, les études sur les êtres humains montrent que toutes les émotions ne se valent pas en terme d’intensité lors de leurs manifestations physique ou psychologique.
-
-
-
-
-
-
-
+Pouvoir appliquer cela dans un jeu vidéo, implique d'après moi d’ajouter des facteurs temporels à chaque émotion: facteur temporel d'acquisition de l’émotion et facteur temporel de disparition (dismiss) de l’émotion, ainsi qu'un facteur d’intensité, en effet, les études sur les êtres humains montrent que toutes les émotions ne se valent pas en terme d’intensité lors de leurs manifestations physique ou psychologique.
