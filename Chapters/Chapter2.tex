@@ -1,6 +1,6 @@
 % Chapter Template
 
-\chapter{Ordinateurs et émotions} % Main chapter title
+\chapter{État de l'art} % Main chapter title
 
 \label{Chapter2} % Change X to a consecutive number; for referencing this chapter elsewhere, use \ref{ChapterX}
 
@@ -8,31 +8,242 @@
 %	SECTION 1
 %----------------------------------------------------------------------------------------
 
-\section{Objectifs du mémoire}
+\section{SMA (ou Système Multi-agent)}
 
-Ce mémoire a pour objectif de contribuer à rendre les agents autonomes plus crédibles aux yeux des êtres humains qui interagissent avec eux. En effet, à l’heure actuelle, les agents autonomes que l’on peut retrouver dans les différentes simulations de manière opérationnelle remplissent très bien leurs tâches quand il s’agit de tests d’équipements, de nouvelles tactiques, ou encore de traitement de grandes quantités de données visant à la prise de décision,  ce qui permet aux humains d’analyser les données résultantes de ces simulations et de les appliquer sur le terrain.
-
-~\par
-Le problème qui se pose dans l’état actuel, c’est que lorsque l'être humain est mis dans la boucle de ces simulations et interagit de manière directe avec ces agents, ceux-ci n’ont aucune crédibilité à ses yeux quant à la manière dont ils prennent telle ou telle décision, ou décident d’appliquer telle ou telle tactique, l’échange entre humain et machine peut vite devenir incompréhensible et aboutir à des résultats inattendus.
-
-~\par
-En effet les agents actuels procèdent de manière rationnelle pour faire un choix parmi une multitude de possibilités, ce choix est celui ayant acquis le plus de “points” ou “score le plus élevé” durant les différentes phases précédentes, il est mis au-dessus de la pile et est considéré comme “le choix de prédilection”. 
-
-~\par
-Or l'être humain n’utilise que très rarement ce type de prise de décision, les NDM (section \ref{ndm}) ou prise de décision dans un milieu naturel prouvent que les choix rationnels ne s'appliquent pas aux paramètres du monde réel en raison d'un certain nombre de facteurs qui rendent leur application impossible ou difficile. 
-
+En informatique, un système multi-agent (SMA) est un système composé d'un ensemble d'agents (un processus, un robot, un être humain, etc.), situés dans un certain environnement et interagissants selon certaines relations. Un agent est une entité caractérisée par le fait qu'elle est autonome, ou du moins partiellement.
+Objet de longue date de recherches en intelligence artificielle distribuée, les systèmes multi-agents forment un type intéressant de modélisation de sociétés, et ont à ce titre des champs d'applications larges, allant des sciences humaines, jusqu’aux services militaires et médicaux \parencite{sma}.
 
 
 %-----------------------------------
 %	SUBSECTION 1
 %-----------------------------------
-\subsection{Objectif concret (framework)}
+\subsection{Exemple de SMA de jeu vidéo}
 
-La solution que je propose est un framework développé en C\# sur le logiciel Unity, logiciel de création de jeux vidéo, cette solution modélise un agent autonome auquel une succession de paramètres de prises de décisions en milieu naturel est appliquée, il sera ensuite confronté à des facteurs et situations inspirées du monde réel devant lesquels il devra faire des choix “naturels”.
-
-~\par
-Cette solution a une valeur ajoutée par rapport à l'existant; en effet, dans le monde du jeu vidéo, la remarque la plus fréquente des joueurs est que les agents auxquels ils se retrouvent confrontés lors de leurs sessions de jeu sont très loin d’atteindre le réalisme des joueurs humains, et cela même si la difficulté sélectionnée est la plus élevée.
+Les communautés virtuelles que l’on trouve de plus en plus dans les jeux vidéo sont un parfait exemple afin de mieux comprendre le fonctionnement d’un SMA. Par exemple, un jeu qui simulerait la vie d’une famille, plusieurs dimensions composent alors ce SMA.
 
 ~\par
-En effet, le paramètre de difficulté ne fait que rendre l’adversaire plus rapide, plus endurant et moins sensible aux dommages corporels,  mais ne lui acquiert en aucun cas un comportement plus humain, de peur, de courage ou encore de stratégie, ce qui rend l'expérience de jeu moins crédible et moins intéressante. Cela explique aussi le succès phénoménal des jeux en ligne, où dans ce cas, le joueur est confronté à un autre être humain, qu’il peut comprendre, déterminer ses mouvements et ses choix selon les situations et la configuration de l’instant. Une “intelligence artificielle” sophistiquée représente donc un facteur marketing clé pour les entreprises de jeux vidéo. 
+Premièrement, un environnement, ayant comme paramètre sa taille et qui pourrait se caractériser par la maison et son jardin. Deuxièmement, les agents de ce SMA disposent d’une quantité d’objets dits “passifs” avec lesquels ils peuvent interagir; ce sera l’équipement de la maison ou encore la nourriture. Ensuite, les agents eux-mêmes, actifs et autonomes, ils sont en contact avec tout ce qui les entoure, leur environnement, les objets qui les composent ou encore les autres agents; on les identifie comme étant “les membres de la famille”. On intègre ensuite le concept d’organisation, constituée des différentes relations entre les objets et les agents, liens familiaux, notions de propriété (qui possède tel ou tel objet). Pour finir, on ajoute des opérateurs qui permettent aux agents d’agir sur leur environnement ou sur les autres agents (le fils peut manger un yaourt, promener son chien ou parler à sa sœur) et de capteurs qui permettent aux agents de connaître les changements d'états de leur environnement et des autres agents (le yaourt est tombé par terre, papa m'a demandé de sortir le chien). Voici donc ce que l'on peut appeler un SMA \parencite{sma}.
+
+
+\subsection{Exemple de SMA en opération “SWARMM” (Smart Whole Air Mission Model)} \label{ssec:swarm}
+
+Le  programme “SWARMM” \parencite{jones1999automated} a été développé par la division des opérations aériennes de l’organisation australienne de défense, de science et technologies; il a  pour objectif de simuler les opérations des avions de combat pour la flotte aérienne australienne la “Royal Australian Air Force”.
+
+~\par
+Chaque pilote est un agent programmé avec dMARS \parencite{dmars1997formal}, un environnement de programmation basé sur le modèle BDI (Belief-desire-intention ou Croyance-désir-intention) et implémenté en FORTRAN et en C. Chacun d'entre eux reçoit des données des modèles physiques équivalentes à celles qu'un pilote reçoit de sa vision et de ses instruments et effectue ce qui suit:
+
+~\par
+\begin{itemize}
+\item cycle de prise de conscience de la situation lorsque les données sont plus complexes (descripteurs symboliques);
+\item  évaluation de la situation, la situation est basée sur les résultats précédents de l'étape précédente;
+\item sélection tactique, sélectionnée en fonction de l'ensemble actuel d'objectifs qui a été reconnu lors des étapes précédentes;
+\item procédures d'opération: choisies pour mettre en œuvre une tactique.
+\end{itemize}
+
+~\par
+Plus d'une décennie de contacts étroits, d'entretiens avec des combattants, de briefings de missions et d'implication dans des exercices d'entraînement a été nécessaire afin d’arriver à établir ce cycle. Il s’est avéré être d’une très grande valeur car il permet une intégration simple des procédures standards et de manière très documentée. Il permet aussi aux combattants de décrire facilement leurs connaissances en se basant sur les différentes étapes du cycle. Pour finir, il assure un échange simple compris entre les deux partis, pilotes et programmeurs. Les programmeurs peuvent ainsi décrire leurs résultats et débattre avec les pilotes en utilisant des termes similaires. Ce programme est principalement  basé sur le travail d’équipe et s’est avéré être extrêmement utile pour tester de nouveaux équipements et tactiques.
+
+~\par
+L’un des principaux buts du projet était l’introduction d’un pilote (agent humain) dans la boucle de simulation en tant que coéquipier ou adversaire. Il a donc été prouvé que même si pour un observateur extérieur, ce programme ressemble à un vrai pilote, il n’était pas crédible aux yeux des vrais pilotes, et cela aux vues de son comportement extrêmement rationnel et peu naturel \parencite{norling2000enhancing}.
+
+
+\section{Naturalistic Decision Making (NDM)} \label{ndm}
+
+\begin{quotation}
+“L’étude de la NDM  pose la question de comment des individus expérimentés, travaillant individuellement ou en groupes, dans un environnement dynamique, rapide et incertain, identifient et évaluent leurs situations, prennent des décisions et effectuent des actions qui ont des conséquences signifiantes sur eux ainsi que sur l'organisation dans laquelle ils opèrent.” \parencite{zsambok2014naturalistic} \end{quotation} 
+
+
+
+Ce terme est apparu en 1989 lors d’ateliers de chercheurs qui avaient pour but d’étudier 
+“les prises de décisions dans des contextes réalistes” (médecine, centrales nucléaires, planification exécutive). Leurs études ont montrés que les théories classiques sur les prises de décisions n’étaient tout simplement pas applicables dans le monde réel. Ils ont aussi prouvé que même lorsque les agents étaient entraînés à faire des choix rationnels, ces derniers ne le faisaient que rarement.
+
+~\par
+Il en a ainsi émergé une meilleure compréhension sur la manière dont nous procédons pour prendre des décisions dans des situations complexes. Dans certains cas, nous procédons effectivement de manière rationnelle, où, une multitude d’options sont générées et la “meilleure” est sélectionnée, mais il existe d’autres stratégies qui sont plus communément utilisées.
+
+~\par
+La recherche dans ce domaine est principalement destinée à la conception d’aides à la décision, mais ces résultats peuvent également être utilisés pour développer de meilleurs modèles cognitifs pour les humains lors des simulations.
+
+~\par
+Orasanu et Connolly \parencite{orasanu1993reinvention} énumèrent huit facteurs qui caractérisent les paramètres de prise de décisions en milieu naturel. De nombreuses études de prise de décisions classiques ignorent ou limitent délibérément ces facteurs, ce qui rend la théorie du choix rationnel plus facile à appliquer.
+
+~\par
+
+Ces facteurs sont:
+\begin{itemize}
+\item problèmes mal structurés;
+\item environnements dynamiques incertains;
+\item objectifs changeants, mal définis ou concurrents;
+\item boucles d'actions / de rétroactions;
+\item le stress dû au temps;
+\item des enjeux trop élevés;
+\item plusieurs joueurs;
+\item objectifs organisationnels et normes.
+\end{itemize}
+
+~\par
+Tous ces facteurs ne sont pas présents dans un contexte dit “naturel”, mais chacun ajoute une complexité au problème.
+
+
+\subsection{Modèles de NDM}
+
+Plusieurs modèles de prise de décisions en milieu naturel ont été proposés, mais à ce jour,
+aucun d’entre eux ne rend compte du spectre complet des décisions pouvant être prises dans un contexte naturel. Lipshitz \parencite{lipshitz1993converging} donne un résumé de neuf modèles qu’il souligne être non contradictoires, mais illustrent les différents types de prise de décision qui peuvent être utilisés.
+
+~\par
+Notez que les chercheurs en NDM s'intéressent généralement aux personnes qui sont expérimentées dans leurs domaines. Hubert Dreyfus explique le modèle d’acquisition de compétences en cinq étapes dans \parencite{dreyfus2014intuitive}, avec des niveaux allant de novice (quelqu'un qui débute dans  le domaine, comme un apprenti pilote), à un expert (quelqu'un qui est très habile dans son activité). La plupart des modèles NDM supposent un certain niveau d'expertise dans le domaine, pas nécessairement expert, mais certainement pas novice. L’un des modèles les plus connus est celui de Klein intitulé  “recognition-primed decision making”, modèle (RPD), ou “la prise de décision axée sur la reconnaissance” \parencite{klein2017sources}, illustré à la figure \ref{fig:klein}.
+
+~\par 
+Comme le souligne Klein lui-même «Le modèle RPD n'est pas issu de recherches en NDM» (\parencite{klein2017sources}, p.102), mais des études d’experts dans divers domaines montrent qu’une grande partie de leurs décisions sont prises de cette façon (figure \ref{fig:klein}). La chose importante à noter à propos de ce modèle est l'accent qui est mis sur l'évaluation de la situation. Une fois que le décideur a reconnu la situation, il existe quatre sous-produits:
+
+\begin{enumerate}
+
+\item il / elle s'attend à ce que certaines choses se produisent mais pas d'autres;
+\item il / elle fait attention à certains signaux pour soutenir le diagnostic;
+\item il existe une certaine compréhension des objectifs qu'il est plausible de réaliser;
+\item certaines actions sont susceptibles de réussir.
+\end{enumerate}
+
+Le décideur choisit ensuite une action, exécute une rapide simulation mentale de
+celle-ci, et s'il/elle pense que cela va réussir, la met en œuvre. Une fois que le plan d’action  a été sélectionné et qu’il est entamé, la situation est surveillée pour s’assurer qu’elle se déroule comme prévu, sinon, d’autres actions pourraient être envisagées, mis à part cette éventualité, le décideur n'envisage pas d'autres options. Dans le modèle RPD, un opérateur expérimenté
+choisira généralement «automatiquement» un plan d’action une fois que la situation est
+reconnue, et que ce plan d’action est susceptible d’être celui qui a donné  auparavant
+des résultats positifs dans la même situation.
+
+
+\begin{figure}[th]
+\centering
+\includegraphics{Figures/klein.PNG}
+\decoRule
+\caption[ La version intégrée  du modèle de Klein de décision axée sur la reconnaissance] { La version intégrée  du modèle de Klein de décision axée sur la reconnaissance
+(Figure 7.1 du livre “Sources of Power” by G. Klein 1998 \parencite{klein2017sources}) }
+\label{fig:klein}
+\end{figure}
+
+
+~\par
+Le modèle de la figure \ref{fig:klein} exprime l’idée qu’une personne qui acquiert de l’expertise est plus susceptible 
+de reconnaître les subtilités entre les situations et de choisir un plan d’action en conséquence.
+
+
+
+~\par
+
+\section{Une brève histoire des jeux dans la recherche sur l'IA}
+
+Les jeux ont une longue histoire dans la recherche sur l'IA, remontant au moins à 1949 lorsque Claude Shannon (peu après avoir développé l'entropie d'informations) s'est intéressé à l'écriture d'un programme informatique pour jouer au jeu d'échecs \parencite{unity2}. Dans son article «Programmer un ordinateur pour jouer aux échecs», Shannon écrit:
+
+~\par
+“La machine à échecs est un système idéal pour commencer, car: 
+
+~\par
+\begin{enumerate}
+\item le problème est clairement défini à la fois dans les opérations autorisées (les mouvements) et dans le but ultime (le mat); 
+\item il n'est ni si simple jusqu'à être trivial ni trop difficile; 
+\item les échecs sont généralement considérés comme nécessitant une «réflexion»; une solution à ce problème nous obligera soit à admettre la possibilité d'une pensée mécanisée, soit à restreindre davantage notre concept de «pensée»; 
+\item la structure discrète des échecs s’intègre parfaitement dans la nature numérique des ordinateurs modernes.”
+
+\end{enumerate}
+
+C'était en 1949.
+
+~\par
+Depuis lors, il existe un intérêt considérable pour la création de programmes informatiques capables de jouer à des jeux de manière aussi habiles que des joueurs humains, parfois même en battant les meilleurs. Shannon a inspiré le travail fondateur d’Arthur Samuel sur Checkers entre les années 1950 et 1960. Si le programme de Samuel n’a pas pu battre les experts, il a été considéré comme une réalisation majeure, car il s’agissait du premier programme à utiliser efficacement les procédures de recherches heuristiques et les méthodes basées sur l’apprentissage \parencite{unity1}.
+
+
+~\par
+Chinook, un programme de contrôleurs mis au point à l’Université d'Alberta en 1989, a commencé à battre les joueurs humains, et dès 1994, les meilleurs joueurs pouvaient au mieux être à égalité avec la machine. Cette tendance s’est poursuivie avec d’autres jeux de plateau à 2 joueurs tels que le backgammon (avec TD-Gammon de Gerald Tesauro, 1992-2002) et le jeu d'échecs (lorsque Deep Blue d’IBM a battu Garry Kasparov, 1997), et plus récemment avec Go.
+
+~\par
+Une avancée scientifique importante de ces dernières années a été celle où, en 2016, AlphaGo de DeepMind a battu le champion du monde Lee Sedol 18 fois 4 à 1, faisant l’objet du documentaire Netflix, AlphaGo \parencite{unity2}. 
+
+
+
+\section{BDI ( Belief-Desire-Intention)}
+
+Les agents du modèle BDI sont basés sur les concepts philosophiques d'intentions, de plans et de raisonnements pratiques développés par Bratman \parencite{bratman1987intention}. Ce modèle est basé sur la psychologie populaire, c'est-à-dire la manière dont nous pensons. Le modèle fournit une première approximation de la cognition humaine, mais il reste encore beaucoup à faire pour l’affiner.
+
+
+\subsection{Belief}
+
+Les croyances d'un agent sont sa vision du monde, qui n'est pas nécessairement la même chose que l'état du monde, car les capteurs peuvent être imparfaits, en effet, les informations fournies peuvent être à la fois incomplètes et bruyantes.
+
+\subsection{Desire}
+
+Plutôt que les désirs d’un agent, nous nous référons à ses objectifs. Ceux-ci donnent l'état du monde dans lequel l'agent souhaite être et doit être cohérent.
+
+
+\subsection{Intention}
+
+Ses intentions sont les plans qu'il exécute actuellement. Il peut y avoir plus d'un plan en cours, car un agent peut travailler simultanément à plusieurs objectifs (non conflictuels). Une fois qu'un agent a formulé une intention (c.-à-d. il sélectionne un plan), il est en quelque sorte engagé dans ce plan - il continue de l'exécuter (ou du moins a l'intention de l'exécuter) jusqu'à ce que l'objectif soit atteint ou qu’il devienne impossible à atteindre en suivant ce même plan, l'objectif devient alors inutile. 
+Un plan est une «recette» pour atteindre un objectif particulier. C'est une séquence d'actions et/ou de sous-objectifs à réaliser. Si une étape de la séquence échoue, le plan lui-même échouera. L'une des caractéristiques d'un système BDI est que, lorsqu'un plan échoue, l'agent réessaye (si possible). Il tentera de trouver un autre moyen d’atteindre l’objectif en tenant compte du fait que le monde (et donc les convictions de l’agent ou son désir) est en train de changer. Un agent stocke ses plans dans une bibliothèque de plans.
+
+
+\subsection{Agent BDI} \label{bdiA}
+
+L'agent montré à la figure \ref{fig:bdi}, page \pageref{fig:bdi} \parencite{norling2000enhancing} passe par un cycle continu de:
+
+\begin{enumerate}
+\item visualiser son environnement;
+\item raisonner sur les croyances, les objectifs et les intentions;
+\item accomplir une ou plusieurs actions.
+\end{enumerate}
+
+Ce cycle est très similaire à celui utilisé dans SWARMM section \ref{ssec:swarm}, qui sépare la deuxième étape en deux étapes: évaluation de la situation suivie de la sélection tactique. En effet, SWARMM est implémenté en utilisant une architecture BDI. Au cours de la phase de raisonnement du cycle, l'agent doit raisonner sur les croyances (si et comment elles devraient changer), les objectifs (les changements de croyances peuvent affecter la faisabilité des objectifs) et les intentions (les changements d'objectifs peuvent amener l'agent à abandonner certaines intentions et / ou d’en créer de nouvelles). L'agent doit également décider quelle action (ou quelles actions) effectuer ensuite, à partir des intentions actuelles.
+
+
+\begin{figure}[th]
+\centering
+\includegraphics{Figures/bdi.PNG}
+\decoRule
+\caption[ Structure d’un agent BDI ] { Structure d’un agent BDI }
+\label{fig:bdi}
+\end{figure}
+
+
+~\par
+Lorsqu'il existe plusieurs plans disponibles pour atteindre un objectif donné, l'agent utilise en théorie un choix rationnel pour sélectionner un plan \parencite{bratman1988plans}. C'est-à-dire que les avantages de tous les plans applicables sont évalués et que le «meilleur» est sélectionné. Cependant la recherche en NDM indique que ce n'est pas ainsi que les agents humains prennent leurs décisions, et c'est sur cela que le travail doit être fait pour  améliorer le modèle BDI .
+
+~\par
+Dans les implémentations pratiques d'architectures BDI, telles que JACK \parencite{jack} ou dMARS \parencite{dmars1997formal}, chaque plan est conçu pour gérer un objectif particulier dans un contexte particulier. Dans ces systèmes, le "contexte" est un ensemble de conditions que l'agent doit croire vraies. Cela permet au programmeur de spécifier différentes manières d'atteindre le même objectif dans différentes situations, mais il est également possible d'avoir plusieurs plans applicables dans une situation donnée (lorsque les contextes se chevauchent).
+
+
+
+
+
+
+
+\section{Autres modèles et architectures}
+
+\subsection{CogAff} \label{cogaff}
+
+CogAff est un modèle de traitement de l'information proposé par Sloman \parencite{sloman2005architectural}. Il comprend trois niveaux, à savoir: réactif, délibératif et réflexif (méta-gestion). 
+Chaque niveau comprend des mécanismes de perception, des mécanismes de traitement centralisés et des mécanismes d'action. L'architecture possède un mécanisme d'alarme ainsi que des communications d'informations entre toutes les parties de l'architecture. Le mécanisme d'alarme fonctionne de manière centralisée et s'apparente au mécanisme d'interruption.
+
+~\par
+
+H-CogAff est un exemple particulier de CogAff expliquant les phénomènes mentaux humains. Chaque niveau supporte différentes catégories d'émotions. «D'autres subdivisions sont nécessaires pour couvrir toute la variété des émotions humaines, d'autant plus que les émotions peuvent changer de caractère au fil du temps, à mesure qu'elles grandissent» \parencite{sloman2005architectural}.
+
+
+\subsection{CLARION}
+
+CLARION a une structure similaire aux trois niveaux de traitement de l’information (section \ref{cogaff}). C'est une architecture cognitive qui comporte deux niveaux: le niveau implicite (similaire aux niveaux réactifs et de routines) et le niveau explicite (similaire au niveau réflexif). Le niveau implicite est le niveau inférieur et code les connaissances implicites. Il utilise un réseau de neurones multi-couches avec Q-learning \parencite{watkins1992q} pour acquérir des connaissances implicites. Le niveau explicite est le niveau supérieur et code la connaissance explicite. Il utilise un apprentissage ponctuel pour acquérir des connaissances explicites.
+
+~\par
+Le niveau le plus bas et le niveau le plus élevé échangent leurs apprentissages au moyen d'un apprentissage ascendant et descendant. Chaque niveau comprend quatre sous-systèmes fonctionnels distincts:
+
+\begin{enumerate}
+\item un sous-système centré sur l'action pour contrôler les actions;
+\item un sous-système non centré sur l'action pour conserver les connaissances générales implicites ou explicites;
+\item un sous-système méta-cognitif pour surveiller, diriger et modifier les opérations de tous les sous-systèmes;
+\item un sous-système de motivation pour fournir les motivations sous-jacentes de la perception, de l'action et de la cognition, en termes d'impulsion et de rétroaction.
+\end{enumerate}
+
+\subsection{SHAME}
+
+SHAME (Architecture évolutive et hybride pour le mimétisme des émotions) est un modèle émotionnel ou système simulant l'état émotionnel d'un agent agissant dans un environnement virtuel présenté par Kesteren en 2001 \parencite{kesteren2001supervised}. Il a construit un modèle de simulation à base d'agents appelés «GridWorld». SHAME implémente la fonction d’affect similaire à la fonction d’affect dans le niveau de réflexion et des fonctions de motivation et de comportement similaires à celles du niveau réactif. Il utilise un réseau de neurones pour apprendre comment l'état émotionnel devrait être influencé par la survenue de stimuli.
+
+
+\subsection{Zamin}
+
+Zamin est un environnement de simulation de vie artificielle pour évaluer les capacités des agents à produire un comportement émotionnel et à prendre de meilleures décisions, développé par Zadeh, Shouraki et Halavati \parencite{zadeh2006emotional}. Ces derniers ont mis en place cet environnement afin d’étudier le possible rôle des émotions dans la gestion des ressources mentales. Ils utilisent uniquement un comportement positif/négatif et un comportement d'approche/d'évitement (uniquement la fonctionnalité du niveau réactif) dans un environnement de type prédateur-proie.
 

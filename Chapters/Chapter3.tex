@@ -1,6 +1,5 @@
-% Chapter Template
 
-\chapter{État de l'art} % Main chapter title
+\chapter{Contribution} % Main chapter title
 
 \label{Chapter3} % Change X to a consecutive number; for referencing this chapter elsewhere, use \ref{ChapterX}
 
@@ -8,242 +7,236 @@
 %	SECTION 1
 %----------------------------------------------------------------------------------------
 
-\section{SMA (ou Système Multi-agent)}
+\section{Unity}
 
-En informatique, un système multi-agent (SMA) est un système composé d'un ensemble d'agents (un processus, un robot, un être humain, etc.), situés dans un certain environnement et interagissants selon certaines relations. Un agent est une entité caractérisée par le fait qu'elle est autonome, ou du moins partiellement.
-Objet de longue date de recherches en intelligence artificielle distribuée, les systèmes multi-agents forment un type intéressant de modélisation de sociétés, et ont à ce titre des champs d'applications larges, allant des sciences humaines, jusqu’aux services militaires et médicaux \parencite{sma}.
+Unity est le logiciel que j'utilise pour développer mon framework, c’est est un moteur de jeu multi-plateforme (smartphone, ordinateur, consoles de jeux vidéo et Web) développé par Unity Technologies \parencite{unity1}. Il est l'un des plus répandus dans l'industrie du jeu vidéo, aussi bien pour les grands studios que pour les indépendants, du fait de sa rapidité aux prototypages et qu'il permette de sortir des jeux sur tous les supports.
 
-
-%-----------------------------------
-%	SUBSECTION 1
-%-----------------------------------
-\subsection{Exemple de SMA de jeu vidéo}
-
-Les communautés virtuelles que l’on trouve de plus en plus dans les jeux vidéo sont un parfait exemple afin de mieux comprendre le fonctionnement d’un SMA. Par exemple, un jeu qui simulerait la vie d’une famille, plusieurs dimensions composent alors ce SMA.
 
 ~\par
-Premièrement, un environnement, ayant comme paramètre sa taille et qui pourrait se caractériser par la maison et son jardin. Deuxièmement, les agents de ce SMA disposent d’une quantité d’objets dits “passifs” avec lesquels ils peuvent interagir; ce sera l’équipement de la maison ou encore la nourriture. Ensuite, les agents eux-mêmes, actifs et autonomes, ils sont en contact avec tout ce qui les entoure, leur environnement, les objets qui les composent ou encore les autres agents; on les identifie comme étant “les membres de la famille”. On intègre ensuite le concept d’organisation, constituée des différentes relations entre les objets et les agents, liens familiaux, notions de propriété (qui possède tel ou tel objet). Pour finir, on ajoute des opérateurs qui permettent aux agents d’agir sur leur environnement ou sur les autres agents (le fils peut manger un yaourt, promener son chien ou parler à sa sœur) et de capteurs qui permettent aux agents de connaître les changements d'états de leur environnement et des autres agents (le yaourt est tombé par terre, papa m'a demandé de sortir le chien). Voici donc ce que l'on peut appeler un SMA \parencite{sma}.
-
-
-\subsection{Exemple de SMA en opération “SWARMM” (Smart Whole Air Mission Model)} \label{ssec:swarm}
-
-Le  programme “SWARMM” \parencite{jones1999automated} a été développé par la division des opérations aériennes de l’organisation australienne de défense, de science et technologies; il a  pour objectif de simuler les opérations des avions de combat pour la flotte aérienne australienne la “Royal Australian Air Force”.
+En terme d’intelligence artificielle, ce dernier propose une multitude de fonctionnalités, notamment basées sur l’apprentissage (Machine Learning) afin de construire des agents autonomes, conscients de leur environnement et qui interagissent avec ce dernier selon des paramètres précis, objectifs, actions et réactions.
 
 ~\par
-Chaque pilote est un agent programmé avec dMARS \parencite{dmars1997formal}, un environnement de programmation basé sur le modèle BDI (Belief-desire-intention ou Croyance-désir-intention) et implémenté en FORTRAN et en C. Chacun d'entre eux reçoit des données des modèles physiques équivalentes à celles qu'un pilote reçoit de sa vision et de ses instruments et effectue ce qui suit:
+L’un des facteurs qui m’a poussé à l’utiliser vient du fait qu'il a la particularité de proposer une licence gratuite dite « Personnelle » avec quelques limitations de technologie avancée au niveau de l'éditeur, mais sans limitation au niveau du moteur.  
+
+
+
+\section{Le Jeu open source “Do not shoot Aliens” - Jeu Mobile}
+
+L'idée principale derrière est de complètement transformer les mécanismes que l’on attend d'un jeu de tir classique. En effet, au lieu de viser et de tirer afin de vaincre ses ennemis, le personnage du joueur est un peu agressif et décide de tirer sur tout ce qui est autour de lui (figure \ref{fig:7.2}). 
+
+Le but du joueur est d’atteindre le moins de personnages extraterrestres pour ne pas les contrarier.
+
+Plus les extraterrestres sont touchés, plus le jeu sera difficile, car le joueur devra les frapper une seconde fois pour les arrêter. 
+
+La victoire est basée sur le fait d’accumuler le plus de points possible en allant de check-point (point de contrôle) en check-point.
+
+\begin{figure}[th]
+\centering
+\includegraphics{Figures/72unity.JPG}
+\decoRule
+\caption[Icon du jeu "Do Not Shoot Aliens"]{Icon du jeu "Do Not Shoot Aliens"}
+\label{fig:7.2}
+\end{figure}
+
+\section{Langage de programmation}
+
+Chaque agent de ce jeu, que ce soit le personnage principal contrôlé par le joueur ou les agents autonomes représentés ici par les ennemis, ainsi que l’environnement et les objets avec lesquels les agents interagissent, est géré par un code source qui lui est propre, ce dernier est écrit en C\# et associé à l'agent concerné via l'interface graphique de Unity, l'avantage de ce langage compilé est le gain de performances.
 
 ~\par
-\begin{itemize}
-\item cycle de prise de conscience de la situation lorsque les données sont plus complexes (descripteurs symboliques);
-\item  évaluation de la situation, la situation est basée sur les résultats précédents de l'étape précédente;
-\item sélection tactique, sélectionnée en fonction de l'ensemble actuel d'objectifs qui a été reconnu lors des étapes précédentes;
-\item procédures d'opération: choisies pour mettre en œuvre une tactique.
-\end{itemize}
+Ce langage est orienté objet, ce qui fait sens car tous les objets, environnements, agents ou encore joueurs sont effectivement des objets 3D, ayant des paramètres qui leur sont propres (vitesse, durée de vie, couleur, objectif ) ainsi que de nombreuses fonctions (marcher, courir, frapper, sauter etc.) qui leur permettent d’effectuer des actions. Cette définition nous renvoie aux concepts de classe, variables de classe et méthodes de classe présentes dans les langages orientés objet.
+
+
+\section{Description des agents autonomes présents dans le jeu}
+
+Le scénario typique pour la création et formation d’agents dans des environnements virtuels consiste à avoir un environnement et un agent uniques qui sont étroitement couplés. Les actions de l'agent modifient l'état de l'environnement et lui procurent des récompenses \parencite{unity2}.  
 
 ~\par
-Plus d'une décennie de contacts étroits, d'entretiens avec des combattants, de briefings de missions et d'implication dans des exercices d'entraînement a été nécessaire afin d’arriver à établir ce cycle. Il s’est avéré être d’une très grande valeur car il permet une intégration simple des procédures standards et de manière très documentée. Il permet aussi aux combattants de décrire facilement leurs connaissances en se basant sur les différentes étapes du cycle. Pour finir, il assure un échange simple compris entre les deux partis, pilotes et programmeurs. Les programmeurs peuvent ainsi décrire leurs résultats et débattre avec les pilotes en utilisant des termes similaires. Ce programme est principalement  basé sur le travail d’équipe et s’est avéré être extrêmement utile pour tester de nouveaux équipements et tactiques.
-
-~\par
-L’un des principaux buts du projet était l’introduction d’un pilote (agent humain) dans la boucle de simulation en tant que coéquipier ou adversaire. Il a donc été prouvé que même si pour un observateur extérieur, ce programme ressemble à un vrai pilote, il n’était pas crédible aux yeux des vrais pilotes, et cela aux vues de son comportement extrêmement rationnel et peu naturel \parencite{norling2000enhancing}.
-
-
-\section{Naturalistic Decision Making (NDM)} \label{ndm}
-
-\begin{quotation}
-“L’étude de la NDM  pose la question de comment des individus expérimentés, travaillant individuellement ou en groupes, dans un environnement dynamique, rapide et incertain, identifient et évaluent leurs situations, prennent des décisions et effectuent des actions qui ont des conséquences signifiantes sur eux ainsi que sur l'organisation dans laquelle ils opèrent.” \parencite{zsambok2014naturalistic} \end{quotation} 
-
-
-
-Ce terme est apparu en 1989 lors d’ateliers de chercheurs qui avaient pour but d’étudier 
-“les prises de décisions dans des contextes réalistes” (médecine, centrales nucléaires, planification exécutive). Leurs études ont montrés que les théories classiques sur les prises de décisions n’étaient tout simplement pas applicables dans le monde réel. Ils ont aussi prouvé que même lorsque les agents étaient entraînés à faire des choix rationnels, ces derniers ne le faisaient que rarement.
-
-~\par
-Il en a ainsi émergé une meilleure compréhension sur la manière dont nous procédons pour prendre des décisions dans des situations complexes. Dans certains cas, nous procédons effectivement de manière rationnelle, où, une multitude d’options sont générées et la “meilleure” est sélectionnée, mais il existe d’autres stratégies qui sont plus communément utilisées.
-
-~\par
-La recherche dans ce domaine est principalement destinée à la conception d’aides à la décision, mais ces résultats peuvent également être utilisés pour développer de meilleurs modèles cognitifs pour les humains lors des simulations.
-
-~\par
-Orasanu et Connolly \parencite{orasanu1993reinvention} énumèrent huit facteurs qui caractérisent les paramètres de prise de décisions en milieu naturel. De nombreuses études de prise de décisions classiques ignorent ou limitent délibérément ces facteurs, ce qui rend la théorie du choix rationnel plus facile à appliquer.
-
-~\par
-
-Ces facteurs sont:
-\begin{itemize}
-\item problèmes mal structurés;
-\item environnements dynamiques incertains;
-\item objectifs changeants, mal définis ou concurrents;
-\item boucles d'actions / de rétroactions;
-\item le stress dû au temps;
-\item des enjeux trop élevés;
-\item plusieurs joueurs;
-\item objectifs organisationnels et normes.
-\end{itemize}
-
-~\par
-Tous ces facteurs ne sont pas présents dans un contexte dit “naturel”, mais chacun ajoute une complexité au problème.
-
-
-\subsection{Modèles de NDM}
-
-Plusieurs modèles de prise de décisions en milieu naturel ont été proposés, mais à ce jour,
-aucun d’entre eux ne rend compte du spectre complet des décisions pouvant être prises dans un contexte naturel. Lipshitz \parencite{lipshitz1993converging} donne un résumé de neuf modèles qu’il souligne être non contradictoires, mais illustrent les différents types de prise de décision qui peuvent être utilisés.
-
-~\par
-Notez que les chercheurs en NDM s'intéressent généralement aux personnes qui sont expérimentées dans leurs domaines. Hubert Dreyfus explique le modèle d’acquisition de compétences en cinq étapes dans \parencite{dreyfus2014intuitive}, avec des niveaux allant de novice (quelqu'un qui débute dans  le domaine, comme un apprenti pilote), à un expert (quelqu'un qui est très habile dans son activité). La plupart des modèles NDM supposent un certain niveau d'expertise dans le domaine, pas nécessairement expert, mais certainement pas novice. L’un des modèles les plus connus est celui de Klein intitulé  “recognition-primed decision making”, modèle (RPD), ou “la prise de décision axée sur la reconnaissance” \parencite{klein2017sources}, illustré à la figure \ref{fig:klein}.
-
+Dans notre cas, les agents ont pour environnement l’esplanade sur laquelle ils circulent, ils peuvent effectuer des actions, par exemple:  marcher doucement, courir ou encore attaquer.
+ 
+ 
 ~\par 
-Comme le souligne Klein lui-même «Le modèle RPD n'est pas issu de recherches en NDM» (\parencite{klein2017sources}, p.102), mais des études d’experts dans divers domaines montrent qu’une grande partie de leurs décisions sont prises de cette façon (figure \ref{fig:klein}). La chose importante à noter à propos de ce modèle est l'accent qui est mis sur l'évaluation de la situation. Une fois que le décideur a reconnu la situation, il existe quatre sous-produits:
+Leur objectif initial est celui de circuler sur l'esplanade, en effet, tant qu’ils ne sont pas touchés, ils conservent leur démarche lente et continuent de circuler de manière hasardeuse (grâce à une fonction Random() qui permet de générer les coordonnées de leur position dans l’espace).
 
-\begin{enumerate}
+~\par
+Par contre s'ils venaient à être touchés par les balles du joueur principal, leur comportement change et leur objectif aussi, ils se concentrent alors principalement sur l’attaque du personnage principal afin de s’en débarrasser.
 
-\item il / elle s'attend à ce que certaines choses se produisent mais pas d'autres;
-\item il / elle fait attention à certains signaux pour soutenir le diagnostic;
-\item il existe une certaine compréhension des objectifs qu'il est plausible de réaliser;
-\item certaines actions sont susceptibles de réussir.
-\end{enumerate}
+On peut identifier ici un exemple de BDI (section \ref{bdiA}) : 
 
-Le décideur choisit ensuite une action, exécute une rapide simulation mentale de
-celle-ci, et s'il/elle pense que cela va réussir, la met en œuvre. Une fois que le plan d’action  a été sélectionné et qu’il est entamé, la situation est surveillée pour s’assurer qu’elle se déroule comme prévu, sinon, d’autres actions pourraient être envisagées, mis à part cette éventualité, le décideur n'envisage pas d'autres options. Dans le modèle RPD, un opérateur expérimenté
-choisira généralement «automatiquement» un plan d’action une fois que la situation est
-reconnue, et que ce plan d’action est susceptible d’être celui qui a donné  auparavant
-des résultats positifs dans la même situation.
+\begin{itemize}
+\item leur "Belief" (ou croyance) initiale est de croire que leur environnement est inoffensif, c’est leur vision du monde;
+\item ce qui engendre leurs désires ou encore leurs objectifs, qui est de circuler dans l’environnement qui les entoure, ceux-ci décrivent l'état du monde parfait dans lequel ils aimeraient évoluer;
+\item leur "Intention" est ici le plan d’action en cours d'exécution, c’est-à-dire, le fait de déambuler sur l’esplanade.
+\end{itemize}
+
+
+~\par
+Comme vu précédemment, tout changement dans leur environnement peut produire un changement dans leur perception de ce dernier, et donc engendrer un nouveau plan d’action, c’est sur ce principe que je me base afin d’appliquer à ces agents différents paramètres qui leur permettront de réagir à leur nouvel environnement. 
+
+\section{Application de paramètres de prise de décisions en milieu naturel (NDM) aux agents BDI}
+
+Afin d’appliquer ces paramètres, je procède de la manière suivante (figure \ref{fig:75}) : 
+
+\begin{itemize}
+\item je déclare des paramètres qui permettent d’évaluer l’état émotionnel des agents lors des différentes phases de changement de l’environnement;
+\item ces variables sont: la peur, la joie, la tristesse et la colère qui sont des booléens;
+\item ces variables possède à son tour des paramètres qui lui sont propres: la vitesse de la démarche, ainsi qu'une couleur qui est attribuée aux agents lorsqu'il ressentent l'une de ces émotions;
+\item en l'occurrence, la couleur associée à la joie est le jaune; celle associée à la tristesse est le bleue; celle associée à la colère est le rouge; celle associée à la peur est le vert (figure \ref{fig:751u}, page \pageref{fig:751u}).
+\end{itemize} 
+
+\begin{figure}[th]
+\centering
+\includegraphics{Figures/75unity.JPG}
+\decoRule
+\caption[Déclaration des variables]{Déclaration des variables}
+\label{fig:75}
+\end{figure}
+
 
 
 \begin{figure}[th]
 \centering
-\includegraphics{Figures/klein.PNG}
+\includegraphics{Figures/751unity.JPG}
 \decoRule
-\caption[ La version intégrée  du modèle de Klein de décision axée sur la reconnaissance] { La version intégrée  du modèle de Klein de décision axée sur la reconnaissance
-(Figure 7.1 du livre “Sources of Power” by G. Klein 1998 \parencite{klein2017sources}) }
-\label{fig:klein}
+\caption[Fenêtre Unity, Valeurs des paramètres]{Fenêtre Unity, Valeurs des paramètres}
+\label{fig:751u}
 \end{figure}
 
 
-~\par
-Le modèle de la figure \ref{fig:klein} exprime l’idée qu’une personne qui acquiert de l’expertise est plus susceptible 
-de reconnaître les subtilités entre les situations et de choisir un plan d’action en conséquence.
+\subsection{Première expérimentation}
 
-
-
-~\par
-
-\section{Une brève histoire des jeux dans la recherche sur l'IA}
-
-Les jeux ont une longue histoire dans la recherche sur l'IA, remontant au moins à 1949 lorsque Claude Shannon (peu après avoir développé l'entropie d'informations) s'est intéressé à l'écriture d'un programme informatique pour jouer au jeu d'échecs \parencite{unity2}. Dans son article «Programmer un ordinateur pour jouer aux échecs», Shannon écrit:
-
-~\par
-“La machine à échecs est un système idéal pour commencer, car: 
-
-~\par
-\begin{enumerate}
-\item le problème est clairement défini à la fois dans les opérations autorisées (les mouvements) et dans le but ultime (le mat); 
-\item il n'est ni si simple jusqu'à être trivial ni trop difficile; 
-\item les échecs sont généralement considérés comme nécessitant une «réflexion»; une solution à ce problème nous obligera soit à admettre la possibilité d'une pensée mécanisée, soit à restreindre davantage notre concept de «pensée»; 
-\item la structure discrète des échecs s’intègre parfaitement dans la nature numérique des ordinateurs modernes.”
-
-\end{enumerate}
-
-C'était en 1949.
-
-~\par
-Depuis lors, il existe un intérêt considérable pour la création de programmes informatiques capables de jouer à des jeux de manière aussi habiles que des joueurs humains, parfois même en battant les meilleurs. Shannon a inspiré le travail fondateur d’Arthur Samuel sur Checkers entre les années 1950 et 1960. Si le programme de Samuel n’a pas pu battre les experts, il a été considéré comme une réalisation majeure, car il s’agissait du premier programme à utiliser efficacement les procédures de recherches heuristiques et les méthodes basées sur l’apprentissage \parencite{unity1}.
-
-
-~\par
-Chinook, un programme de contrôleurs mis au point à l’Université d'Alberta en 1989, a commencé à battre les joueurs humains, et dès 1994, les meilleurs joueurs pouvaient au mieux être à égalité avec la machine. Cette tendance s’est poursuivie avec d’autres jeux de plateau à 2 joueurs tels que le backgammon (avec TD-Gammon de Gerald Tesauro, 1992-2002) et le jeu d'échecs (lorsque Deep Blue d’IBM a battu Garry Kasparov, 1997), et plus récemment avec Go.
-
-~\par
-Une avancée scientifique importante de ces dernières années a été celle où, en 2016, AlphaGo de DeepMind a battu le champion du monde Lee Sedol 18 fois 4 à 1, faisant l’objet du documentaire Netflix, AlphaGo \parencite{unity2}. 
-
-
-
-\section{BDI ( Belief-Desire-Intention)}
-
-Les agents du modèle BDI sont basés sur les concepts philosophiques d'intentions, de plans et de raisonnements pratiques développés par Bratman \parencite{bratman1987intention}. Ce modèle est basé sur la psychologie populaire, c'est-à-dire la manière dont nous pensons. Le modèle fournit une première approximation de la cognition humaine, mais il reste encore beaucoup à faire pour l’affiner.
-
-
-\subsection{Belief}
-
-Les croyances d'un agent sont sa vision du monde, qui n'est pas nécessairement la même chose que l'état du monde, car les capteurs peuvent être imparfaits, en effet, les informations fournies peuvent être à la fois incomplètes et bruyantes.
-
-\subsection{Desire}
-
-Plutôt que les désirs d’un agent, nous nous référons à ses objectifs. Ceux-ci donnent l'état du monde dans lequel l'agent souhaite être et doit être cohérent.
-
-
-\subsection{Intention}
-
-Ses intentions sont les plans qu'il exécute actuellement. Il peut y avoir plus d'un plan en cours, car un agent peut travailler simultanément à plusieurs objectifs (non conflictuels). Une fois qu'un agent a formulé une intention (c.-à-d. il sélectionne un plan), il est en quelque sorte engagé dans ce plan - il continue de l'exécuter (ou du moins a l'intention de l'exécuter) jusqu'à ce que l'objectif soit atteint ou qu’il devienne impossible à atteindre en suivant ce même plan, l'objectif devient alors inutile. 
-Un plan est une «recette» pour atteindre un objectif particulier. C'est une séquence d'actions et/ou de sous-objectifs à réaliser. Si une étape de la séquence échoue, le plan lui-même échouera. L'une des caractéristiques d'un système BDI est que, lorsqu'un plan échoue, l'agent réessaye (si possible). Il tentera de trouver un autre moyen d’atteindre l’objectif en tenant compte du fait que le monde (et donc les convictions de l’agent ou son désir) est en train de changer. Un agent stocke ses plans dans une bibliothèque de plans.
-
-
-\subsection{Agent BDI} \label{bdiA}
-
-L'agent montré à la figure \ref{fig:bdi}, page \pageref{fig:bdi} \parencite{norling2000enhancing} passe par un cycle continu de:
-
-\begin{enumerate}
-\item visualiser son environnement;
-\item raisonner sur les croyances, les objectifs et les intentions;
-\item accomplir une ou plusieurs actions.
-\end{enumerate}
-
-Ce cycle est très similaire à celui utilisé dans SWARMM section \ref{ssec:swarm}, qui sépare la deuxième étape en deux étapes: évaluation de la situation suivie de la sélection tactique. En effet, SWARMM est implémenté en utilisant une architecture BDI. Au cours de la phase de raisonnement du cycle, l'agent doit raisonner sur les croyances (si et comment elles devraient changer), les objectifs (les changements de croyances peuvent affecter la faisabilité des objectifs) et les intentions (les changements d'objectifs peuvent amener l'agent à abandonner certaines intentions et / ou d’en créer de nouvelles). L'agent doit également décider quelle action (ou quelles actions) effectuer ensuite, à partir des intentions actuelles.
+Lors de ma première expérimentation, j’ai décidé d’établir une distance critique entre le joueur et les agents autonomes. Le fait que le joueur est très proche d’eux, serait synonyme de tristesse pour ces derniers, sentiment lié au fait de savoir que le joueur peut à tout moment les toucher.
 
 
 \begin{figure}[th]
 \centering
-\includegraphics{Figures/bdi.PNG}
+\includegraphics{Figures/fonctdist.JPG}
 \decoRule
-\caption[ Structure d’un agent BDI ] { Structure d’un agent BDI }
-\label{fig:bdi}
+\caption[Code source implémentant une courte distance ]{Code source implémentant une courte distance entre le joueur et l'agent}
+\label{fig:751}
+\end{figure}
+
+
+
+~\par
+La distance est exprimée ici par la différence entre la position de l’agent en mode “stop” ou à l'arrêt et le joueur lui-même, à laquelle on ajoute un delta, un nombre flottant représenté ici par le 8f. Il suffit ensuite de varier ce nombre flottant afin d’augmenter ou de diminuer le delta et de calculer la distance qui sépare les agents autonomes (plus ou moins grande selon le delta) du joueur. 
+
+~\par
+Le résultat souhaité est de pouvoir visualiser un changement de couleur aux agents suivant l’émotion qu’ils ressentent, dans la figure \ref{fig:751}, c’est la peur, la couleur de l’agent prend donc la couleur associée à la peur (le vert, figure \ref{fig:bichi1}), une fois que ce dernier est à une distance équivalente à un delta de 8. Ce dernier change aussi de vitesse de démarche et adopte un rythme plus élevé lui permettant d'échapper au joueur au fur et à mesure que celui-ci se rapproche. La vitesse liée à la peur est plus élevée que celle liée à la démarche dite "normale", ceci est exprimé sur la figure \ref{fig:751u}.
+
+
+\begin{figure}[th]
+\centering
+\includegraphics{Figures/bichi1.JPG}
+\decoRule
+\caption[Visualisation d'agents en état de peur]{Visualisation d'agents en état de peur}
+\label{fig:bichi1}
+\end{figure}
+
+
+
+\subsection{Deuxième expérimentation}
+
+On ajoute cette fois-ci à l'expérience précédente un nouveau facteur émotionnel, celui de la joie.
+Suivant le même principe que précédemment, on définit un delta qui permet de calculer la distance entre le joueur et l’agent autonome, celui-ci est de 20f, une distance que l'on considérera comme élevée par rapport à la taille du terrain (figure \ref{fig:fonct2}).
+
+\begin{figure}[th]
+\centering
+\includegraphics{Figures/fonct2.JPG}
+\decoRule
+\caption[Code source implémentant une longue distance]{Code source implémentant une longue distance entre le joueur et l'agent}
+\label{fig:fonct2}
+\end{figure}
+
+
+
+~\par
+Le résultat souhaité est de pouvoir visualiser un changement de couleur sur les agents à l’instant où cette distance est atteinte.
+
+~\par
+La couleur de ces derniers devient alors jaune, et leur vitesse passe à un rythme beaucoup moins élevée (figure \ref{fig:bichi2}).
+
+\begin{figure}[th]
+\centering
+\includegraphics{Figures/bichi2.JPG}
+\decoRule
+\caption[Visualisation d'agents en état de joie]{Visualisation d'agents en état de joie}
+\label{fig:bichi2}
+\end{figure}
+
+
+\subsection{Troisième expérimentation}
+
+On ajoute cette fois-ci à l'expérience précédente un autre facteur émotionnel, celui de la tristesse, ce dernier intervient lorsque la distance équivaut à la valeur médiane entre les deux distances précédentes, c’est-à-dire un delta de 14f (figure \ref{fig:333f}).
+
+
+\begin{figure}[th]
+\centering
+\includegraphics{Figures/333f.JPG}
+\decoRule
+\caption[Code source implémentant une distance médiane]{Code source implémentant une distance médiane entre le joueur et l'agent}
+\label{fig:333f}
+\end{figure}
+
+~\par
+Le résultat souhaité est de pouvoir visualiser un changement de couleur sur les agents à l’instant où cette valeur médiane est atteinte. 
+
+
+~\par
+La couleur de ces derniers devient alors bleue, et leur vitesse passe à un rythme un peu plus soutenu que celui généré par la joie (figure \ref{fig:bichi3}).
+
+\begin{figure}[th]
+\centering
+\includegraphics{Figures/bleu.JPG}
+\decoRule
+\caption[Visualisation d'agents en état de tristesse]{Visualisation d'agents en état de tristesse}
+\label{fig:bichi3}
 \end{figure}
 
 
 ~\par
-Lorsqu'il existe plusieurs plans disponibles pour atteindre un objectif donné, l'agent utilise en théorie un choix rationnel pour sélectionner un plan \parencite{bratman1988plans}. C'est-à-dire que les avantages de tous les plans applicables sont évalués et que le «meilleur» est sélectionné. Cependant la recherche en NDM indique que ce n'est pas ainsi que les agents humains prennent leurs décisions, et c'est sur cela que le travail doit être fait pour  améliorer le modèle BDI .
+Ajoutons à cela, le comportement présent dans le code source du jeu (figure \ref{fig:derfon}), à savoir que la colère génère une vitesse plus élevée que toutes les autres émotions chez l’agent autonome et une couleur rouge. En plus de cela, elle change le centre d'intérêt de l'agent. En effet, jusque-là, ce dernier se déplaçait de manière hasardeuse grâce à la fonction RandomWalk(), une fois le sentiment de colère déclenché, son point d’arrivée se rattache instantanément à la position du joueur (comme le montre la figure \ref{fig:bichi4} sur la page \pageref{fig:bichi4}).
+
+
+
+\begin{figure}[th]
+\centering
+\includegraphics{Figures/derfon.JPG}
+\decoRule
+\caption[Code source implémentant la réaction d'un agent en état de colère]{Code source implémentant la réaction d'un agent en état de colère}
+\label{fig:derfon}
+\end{figure}
+
+
+
+\begin{figure}[th]
+\centering
+\includegraphics{Figures/rouge.JPG}
+\decoRule
+\caption[Visualisation d'agents en état de colère]{Visualisation d'agents en état de colère}
+\label{fig:bichi4}
+\end{figure}
+
+\section{Résultats (positifs/négatifs)}
+
+\subsection{Résultats positifs}
+
+Les résultats suites à ces tests sont plutôt concluants, et confirment l’hypothèse mise en place par le modèle BDI.
+
 
 ~\par
-Dans les implémentations pratiques d'architectures BDI, telles que JACK \parencite{jack} ou dMARS \parencite{dmars1997formal}, chaque plan est conçu pour gérer un objectif particulier dans un contexte particulier. Dans ces systèmes, le "contexte" est un ensemble de conditions que l'agent doit croire vraies. Cela permet au programmeur de spécifier différentes manières d'atteindre le même objectif dans différentes situations, mais il est également possible d'avoir plusieurs plans applicables dans une situation donnée (lorsque les contextes se chevauchent).
+À chaque changement de l’état du monde, rapprochement ou éloignement de l’agent autonome du joueur représentant la menace, les paramètres considérés, de joie, de peur, de tristesse ou de colère changent et influent sur la réaction des agents et leurs comportements.
 
-
-
-
-
-
-
-\section{Autres modèles et architectures}
-
-\subsection{CogAff} \label{cogaff}
-
-CogAff est un modèle de traitement de l'information proposé par Sloman \parencite{sloman2005architectural}. Il comprend trois niveaux, à savoir: réactif, délibératif et réflexif (méta-gestion). 
-Chaque niveau comprend des mécanismes de perception, des mécanismes de traitement centralisés et des mécanismes d'action. L'architecture possède un mécanisme d'alarme ainsi que des communications d'informations entre toutes les parties de l'architecture. Le mécanisme d'alarme fonctionne de manière centralisée et s'apparente au mécanisme d'interruption.
 
 ~\par
+Le passage entre les différentes émotions fonctionne quant à lui aussi très bien. Par exemple, si le joueur se rapproche beaucoup des agents, ceux-ci prennent peur et changent leurs démarches afin d’aller plus vite et de fuir. Mais si le joueur s’éloigne d’eux, les agents reprennent petit à petit une démarche normale, en passant par différents états émotionnels, qui sont représentés visuellement par les différentes couleurs, jusqu’à ce que la distance les séparant soit assez élevée pour qu’ils puissent considérer qu’il n’y a plus de danger.
 
-H-CogAff est un exemple particulier de CogAff expliquant les phénomènes mentaux humains. Chaque niveau supporte différentes catégories d'émotions. «D'autres subdivisions sont nécessaires pour couvrir toute la variété des émotions humaines, d'autant plus que les émotions peuvent changer de caractère au fil du temps, à mesure qu'elles grandissent» \parencite{sloman2005architectural}.
-
-
-\subsection{CLARION}
-
-CLARION a une structure similaire aux trois niveaux de traitement de l’information (section \ref{cogaff}). C'est une architecture cognitive qui comporte deux niveaux: le niveau implicite (similaire aux niveaux réactifs et de routines) et le niveau explicite (similaire au niveau réflexif). Le niveau implicite est le niveau inférieur et code les connaissances implicites. Il utilise un réseau de neurones multi-couches avec Q-learning \parencite{watkins1992q} pour acquérir des connaissances implicites. Le niveau explicite est le niveau supérieur et code la connaissance explicite. Il utilise un apprentissage ponctuel pour acquérir des connaissances explicites.
 
 ~\par
-Le niveau le plus bas et le niveau le plus élevé échangent leurs apprentissages au moyen d'un apprentissage ascendant et descendant. Chaque niveau comprend quatre sous-systèmes fonctionnels distincts:
+On peut remarquer que les prises de décisions sont donc peu “rationnels”, et plus “naturels”, même si quelques points négatifs restent observables.
 
-\begin{enumerate}
-\item un sous-système centré sur l'action pour contrôler les actions;
-\item un sous-système non centré sur l'action pour conserver les connaissances générales implicites ou explicites;
-\item un sous-système méta-cognitif pour surveiller, diriger et modifier les opérations de tous les sous-systèmes;
-\item un sous-système de motivation pour fournir les motivations sous-jacentes de la perception, de l'action et de la cognition, en termes d'impulsion et de rétroaction.
-\end{enumerate}
+\subsection{Résultats négatifs}
 
-\subsection{SHAME}
+L’un des points négatifs est le passage d’une émotion à une autre qui n’est, à mon sens, pas assez réaliste, en effet dans la réalité, un agent humain peut mettre plusieurs minutes, plusieurs heures voient plusieurs jours ou mois pour passer d’une émotion à une autre, ou se débarrasser d’une émotion désagréable liée à des situations particulières telles que des traumatismes.
 
-SHAME (Architecture évolutive et hybride pour le mimétisme des émotions) est un modèle émotionnel ou système simulant l'état émotionnel d'un agent agissant dans un environnement virtuel présenté par Kesteren en 2001 \parencite{kesteren2001supervised}. Il a construit un modèle de simulation à base d'agents appelés «GridWorld». SHAME implémente la fonction d’affect similaire à la fonction d’affect dans le niveau de réflexion et des fonctions de motivation et de comportement similaires à celles du niveau réactif. Il utilise un réseau de neurones pour apprendre comment l'état émotionnel devrait être influencé par la survenue de stimuli.
-
-
-\subsection{Zamin}
-
-Zamin est un environnement de simulation de vie artificielle pour évaluer les capacités des agents à produire un comportement émotionnel et à prendre de meilleures décisions, développé par Zadeh, Shouraki et Halavati \parencite{zadeh2006emotional}. Ces derniers ont mis en place cet environnement afin d’étudier le possible rôle des émotions dans la gestion des ressources mentales. Ils utilisent uniquement un comportement positif/négatif et un comportement d'approche/d'évitement (uniquement la fonctionnalité du niveau réactif) dans un environnement de type prédateur-proie.
-
+~\par
+Pouvoir appliquer cela dans un jeu vidéo, implique d'après moi d’ajouter des facteurs temporels à chaque émotion: facteur temporel d'acquisition de l’émotion et facteur temporel de disparition (dismiss) de l’émotion, ainsi qu'un facteur d’intensité, en effet, les études sur les êtres humains montrent que toutes les émotions ne se valent pas en terme d’intensité lors de leurs manifestations physique ou psychologique.
