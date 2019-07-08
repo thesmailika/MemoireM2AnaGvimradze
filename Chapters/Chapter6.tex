@@ -9,7 +9,7 @@
 
 \section{Unity}
 
-Unity est le logiciel que j'utilise pour développer mon framework, c’est est un moteur de jeu multi-plateforme (smartphone, ordinateur, consoles de jeux vidéo et Web) développé par Unity Technologies. Il est l'un des plus répandus dans l'industrie du jeu vidéo, aussi bien pour les grands studios que pour les indépendants, du fait de sa rapidité aux prototypages et qu'il permette de sortir des jeux sur tous les supports.
+Unity est le logiciel que j'utilise pour développer mon framework, c’est est un moteur de jeu multi-plateforme (smartphone, ordinateur, consoles de jeux vidéo et Web) développé par Unity Technologies \parencite{unity1}. Il est l'un des plus répandus dans l'industrie du jeu vidéo, aussi bien pour les grands studios que pour les indépendants, du fait de sa rapidité aux prototypages et qu'il permette de sortir des jeux sur tous les supports.
 
 
 ~\par
@@ -48,7 +48,7 @@ Ce langage est orienté objet, ce qui fait sens car tous les objets, environneme
 
 \section{Description des agents autonomes présents dans le jeu}
 
-Le scénario typique pour la création et formation d’agents dans des environnements virtuels consiste à avoir un environnement et un agent uniques qui sont étroitement couplés. Les actions de l'agent modifient l'état de l'environnement et lui procurent des récompenses. \parencite{unity2}  
+Le scénario typique pour la création et formation d’agents dans des environnements virtuels consiste à avoir un environnement et un agent uniques qui sont étroitement couplés. Les actions de l'agent modifient l'état de l'environnement et lui procurent des récompenses \parencite{unity2}.  
 
 ~\par
 Dans notre cas, les agents ont pour environnement l’esplanade sur laquelle ils circulent, ils peuvent effectuer des actions, par exemple:  marcher doucement, courir ou encore attaquer.
@@ -60,7 +60,7 @@ Leur objectif initial est celui de circuler sur l'esplanade, en effet, tant qu�
 ~\par
 Par contre s'ils venaient à être touchés par les balles du joueur principal, leur comportement change et leur objectif aussi, ils se concentrent alors principalement sur l’attaque du personnage principal afin de s’en débarrasser.
 
-On peut identifier ici un exemple de BDI : 
+On peut identifier ici un exemple de BDI (section \ref{bdiA}) : 
 
 \begin{itemize}
 \item leur "Belief" (ou croyance) initiale est de croire que leur environnement est inoffensif, c’est leur vision du monde;

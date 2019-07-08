@@ -22,15 +22,15 @@ Objet de longue date de recherches en intelligence artificielle distribuée, les
 Les communautés virtuelles que l’on trouve de plus en plus dans les jeux vidéo sont un parfait exemple afin de mieux comprendre le fonctionnement d’un SMA. Par exemple, un jeu qui simulerait la vie d’une famille, plusieurs dimensions composent alors ce SMA.
 
 ~\par
-Premièrement, un environnement, ayant comme paramètre sa taille et qui pourrait se caractériser par la maison et son jardin. Deuxièmement, les agents de ce SMA disposent d’une quantité d’objets dits “passifs” avec lesquels ils peuvent interagir; ce sera l’équipement de la maison ou encore la nourriture. Ensuite, les agents eux-mêmes, actifs et autonomes, ils sont en contact avec tout ce qui les entoure, leur environnement, les objets qui les composent ou encore les autres agents; on les identifie comme étant “les membres de la famille”. On intègre ensuite le concept d’organisation, constituée des différentes relations entre les objets et les agents, liens familiaux, notions de propriété (qui possède tel ou tel objet). Pour finir, on ajoute des opérateurs qui permettent aux agents d’agir sur leur environnement ou sur les autres agents (le fils peut manger un yaourt, promener son chien ou parler à sa sœur) et de capteurs qui permettent aux agents de connaître les changements d'états de leur environnement et des autres agents (le yaourt est tombé par terre, papa m'a demandé de sortir le chien). Voici donc ce que l'on peut appeler un SMA. \parencite{sma}
+Premièrement, un environnement, ayant comme paramètre sa taille et qui pourrait se caractériser par la maison et son jardin. Deuxièmement, les agents de ce SMA disposent d’une quantité d’objets dits “passifs” avec lesquels ils peuvent interagir; ce sera l’équipement de la maison ou encore la nourriture. Ensuite, les agents eux-mêmes, actifs et autonomes, ils sont en contact avec tout ce qui les entoure, leur environnement, les objets qui les composent ou encore les autres agents; on les identifie comme étant “les membres de la famille”. On intègre ensuite le concept d’organisation, constituée des différentes relations entre les objets et les agents, liens familiaux, notions de propriété (qui possède tel ou tel objet). Pour finir, on ajoute des opérateurs qui permettent aux agents d’agir sur leur environnement ou sur les autres agents (le fils peut manger un yaourt, promener son chien ou parler à sa sœur) et de capteurs qui permettent aux agents de connaître les changements d'états de leur environnement et des autres agents (le yaourt est tombé par terre, papa m'a demandé de sortir le chien). Voici donc ce que l'on peut appeler un SMA \parencite{sma}.
 
 
 \subsection{Exemple de SMA en opération “SWARMM” (Smart Whole Air Mission Model)} \label{ssec:swarm}
 
-Le  programme “SWARMM” a été développé par la division des opérations aériennes de l’organisation australienne de défense, de science et technologies; il a  pour objectif de simuler les opérations des avions de combat pour la flotte aérienne australienne la “Royal Australian Air Force”.
+Le  programme “SWARMM” \parencite{jones1999automated} a été développé par la division des opérations aériennes de l’organisation australienne de défense, de science et technologies; il a  pour objectif de simuler les opérations des avions de combat pour la flotte aérienne australienne la “Royal Australian Air Force”.
 
 ~\par
-Chaque pilote est un agent programmé avec dMARS, un environnement de programmation basé sur le modèle BDI (Belief-desire-intention ou Croyance-désir-intention) et implémenté en FORTRAN et en C. Chacun d'entre eux reçoit des données des modèles physiques équivalentes à celles qu'un pilote reçoit de sa vision et de ses instruments et effectue ce qui suit:
+Chaque pilote est un agent programmé avec dMARS \parencite{dmars1997formal}, un environnement de programmation basé sur le modèle BDI (Belief-desire-intention ou Croyance-désir-intention) et implémenté en FORTRAN et en C. Chacun d'entre eux reçoit des données des modèles physiques équivalentes à celles qu'un pilote reçoit de sa vision et de ses instruments et effectue ce qui suit:
 
 ~\par
 \begin{itemize}
@@ -47,7 +47,7 @@ Plus d'une décennie de contacts étroits, d'entretiens avec des combattants, de
 L’un des principaux buts du projet était l’introduction d’un pilote (agent humain) dans la boucle de simulation en tant que coéquipier ou adversaire. Il a donc été prouvé que même si pour un observateur extérieur, ce programme ressemble à un vrai pilote, il n’était pas crédible aux yeux des vrais pilotes, et cela aux vues de son comportement extrêmement rationnel et peu naturel \parencite{norling2000enhancing}.
 
 
-\section{Naturalistic Decision Making (NDM)}
+\section{Naturalistic Decision Making (NDM)} \label{ndm}
 
 \begin{quotation}
 “L’étude de la NDM  pose la question de comment des individus expérimentés, travaillant individuellement ou en groupes, dans un environnement dynamique, rapide et incertain, identifient et évaluent leurs situations, prennent des décisions et effectuent des actions qui ont des conséquences signifiantes sur eux ainsi que sur l'organisation dans laquelle ils opèrent.” \parencite{zsambok2014naturalistic} \end{quotation} 
@@ -93,7 +93,7 @@ aucun d’entre eux ne rend compte du spectre complet des décisions pouvant êt
 Notez que les chercheurs en NDM s'intéressent généralement aux personnes qui sont expérimentées dans leurs domaines. Hubert Dreyfus explique le modèle d’acquisition de compétences en cinq étapes dans \parencite{dreyfus2014intuitive}, avec des niveaux allant de novice (quelqu'un qui débute dans  le domaine, comme un apprenti pilote), à un expert (quelqu'un qui est très habile dans son activité). La plupart des modèles NDM supposent un certain niveau d'expertise dans le domaine, pas nécessairement expert, mais certainement pas novice. L’un des modèles les plus connus est celui de Klein intitulé  “recognition-primed decision making”, modèle (RPD), ou “la prise de décision axée sur la reconnaissance” \parencite{klein2017sources}, illustré à la figure \ref{fig:klein}.
 
 ~\par 
-Comme le souligne Klein lui-même «Le modèle RPD n'est pas issu de recherches en NDM» (\parencite{klein2017sources}, p.102), mais des études d’experts dans divers domaines montrent qu’une grande partie de leurs décisions sont prises de cette façon (voir le tableau 7.2 dans \parencite{klein2017sources}). La chose importante à noter à propos de ce modèle est l'accent qui est mis sur l'évaluation de la situation. Une fois que le décideur a reconnu la situation, il existe quatre sous-produits:
+Comme le souligne Klein lui-même «Le modèle RPD n'est pas issu de recherches en NDM» (\parencite{klein2017sources}, p.102), mais des études d’experts dans divers domaines montrent qu’une grande partie de leurs décisions sont prises de cette façon (figure \ref{fig:klein}). La chose importante à noter à propos de ce modèle est l'accent qui est mis sur l'évaluation de la situation. Une fois que le décideur a reconnu la situation, il existe quatre sous-produits:
 
 \begin{enumerate}
 
@@ -104,7 +104,7 @@ Comme le souligne Klein lui-même «Le modèle RPD n'est pas issu de recherches 
 \end{enumerate}
 
 Le décideur choisit ensuite une action, exécute une rapide simulation mentale de
-celle-ci, et s'il/elle pense que cela va réussir, la met en œuvre. Une fois que le plan d’action  a été sélectionné et qu’il est entamé, la situation est surveillée pour s’assurer qu’elle se déroule comme prévu, sinon, d’autres actions pourraient être envisagées, mis à part cette éventualité, le décideur n'envisage pas d'autres options. (Notez que cet aspect du modèle n’est pas indiqué dans le diagramme.) Dans le modèle RPD, un opérateur expérimenté
+celle-ci, et s'il/elle pense que cela va réussir, la met en œuvre. Une fois que le plan d’action  a été sélectionné et qu’il est entamé, la situation est surveillée pour s’assurer qu’elle se déroule comme prévu, sinon, d’autres actions pourraient être envisagées, mis à part cette éventualité, le décideur n'envisage pas d'autres options. Dans le modèle RPD, un opérateur expérimenté
 choisira généralement «automatiquement» un plan d’action une fois que la situation est
 reconnue, et que ce plan d’action est susceptible d’être celui qui a donné  auparavant
 des résultats positifs dans la même situation.
@@ -130,7 +130,7 @@ de reconnaître les subtilités entre les situations et de choisir un plan d’a
 
 \section{Une brève histoire des jeux dans la recherche sur l'IA}
 
-Les jeux ont une longue histoire dans la recherche sur l'IA, remontant au moins à 1949 lorsque Claude Shannon (peu après avoir développé l'entropie d'informations) s'est intéressé à l'écriture d'un programme informatique pour jouer au jeu d'échecs. Dans son article «Programmer un ordinateur pour jouer aux échecs», Shannon écrit:
+Les jeux ont une longue histoire dans la recherche sur l'IA, remontant au moins à 1949 lorsque Claude Shannon (peu après avoir développé l'entropie d'informations) s'est intéressé à l'écriture d'un programme informatique pour jouer au jeu d'échecs \parencite{unity2}. Dans son article «Programmer un ordinateur pour jouer aux échecs», Shannon écrit:
 
 ~\par
 “La machine à échecs est un système idéal pour commencer, car: 
@@ -151,9 +151,9 @@ Depuis lors, il existe un intérêt considérable pour la création de programme
 
 
 ~\par
-Chinook, un programme de contrôleurs mis au point à l’Université d'Alberta en 1989, a commencé à battre les joueurs humains, et dès 1994, les meilleurs joueurs pouvaient au mieux être à égalité avec la machine. Cette tendance s’est poursuivie avec d’autres jeux de plateau à 2 joueurs tels que Backgammon (avec TD-Gammon de Gerald Tesauro, 1992-2002) et Chess (lorsque Deep Blue d’IBM a battu Garry Kasparov, 1997), et plus récemment avec Go.
+Chinook, un programme de contrôleurs mis au point à l’Université d'Alberta en 1989, a commencé à battre les joueurs humains, et dès 1994, les meilleurs joueurs pouvaient au mieux être à égalité avec la machine. Cette tendance s’est poursuivie avec d’autres jeux de plateau à 2 joueurs tels que le backgammon (avec TD-Gammon de Gerald Tesauro, 1992-2002) et le jeu d'échecs (lorsque Deep Blue d’IBM a battu Garry Kasparov, 1997), et plus récemment avec Go.
 
 ~\par
-Une avancée scientifique importante de ces dernières années a été celle où, en 2016, AlphaGo de DeepMind a battu le champion du monde Lee Sedol 18 fois 4 à 1, faisant l’objet du documentaire Netflix, AlphaGo. 
+Une avancée scientifique importante de ces dernières années a été celle où, en 2016, AlphaGo de DeepMind a battu le champion du monde Lee Sedol 18 fois 4 à 1, faisant l’objet du documentaire Netflix, AlphaGo \parencite{unity2}. 
 
 
