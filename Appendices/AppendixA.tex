@@ -186,6 +186,7 @@ public class Enemy : MonoBehaviour {
 		Instantiate(bloodEffect, transform.position + Vector3.up * 1.5f, transform.rotation);
         if (angry){
 			Die();
+			
             # Si l'une des cibles est éliminée, les autres passent en état de tristesse
         }
 		else{

@@ -7,6 +7,10 @@
 %----------------------------------------------------------------------------------------
 %	SECTION 1
 %----------------------------------------------------------------------------------------
+Dans ce chapitre, nous allons voir les principaux concepts impliqués dans l’implémentation d’agents autonomes; les systèmes multiagents avec quelques exemples d’implémentation; la recherche en “NDM” ou prise de décisions en milieu naturel et quelques modèles issus de ces recherches. Aussi, l’architecture BDI (belief, desire, intention) servant à l’implémentation d’agents autonomes et qui représentent l’un des modèles les plus proches de la cognition humaine, ainsi que d’autres architectures.
+Nous verrons aussi comment est abordée l’intelligence artificielle dans les jeux vidéo et de quelle manière elle a évolué depuis l’apparition du jeu vidéo ainsi que deux exemples de jeux célèbres implémentant des IA d’une grande complexité.
+
+
 
 \section{SMA (ou Système Multi-agent)}
 
@@ -247,3 +251,110 @@ SHAME (Architecture évolutive et hybride pour le mimétisme des émotions) est 
 
 Zamin est un environnement de simulation de vie artificielle pour évaluer les capacités des agents à produire un comportement émotionnel et à prendre de meilleures décisions, développé par Zadeh, Shouraki et Halavati \parencite{zadeh2006emotional}. Ces derniers ont mis en place cet environnement afin d’étudier le possible rôle des émotions dans la gestion des ressources mentales. Ils utilisent uniquement un comportement positif/négatif et un comportement d'approche/d'évitement (uniquement la fonctionnalité du niveau réactif) dans un environnement de type prédateur-proie.
 
+
+\section{L'évolution de l’IA dans les jeux vidéo}
+
+L’IA n’a pas tant évolué que ça au fil des années, elle fonctionne toujours sur les deux principes de \parencite{youtubeIA}:
+
+~\par
+\begin{itemize}
+
+\item  pathfinding: aller d’un point A à un point B, déjà utilisé il y a 20 ans et encore utilisé;
+
+\item  state machine: un agent autonome peut être dans les différents états et changer de l’un à l’autre.
+
+\end{itemize}
+
+~\par
+L’IA a  évolué depuis dans tous les domaines, grâce à un concept clé qui est le deep learning, le fait d'alimenter un agent autonome avec des millions de données issues d'expériences diverses. 
+
+~\par
+Mais les constructeurs de jeux vidéo ne peuvent pas se reposer sur cette technologie, car les agents autonomes basés sur du deep learning ne sont pas prédictibles, et cela pose un grand problème à ces mêmes constructeurs car ils ne peuvent pas prévoir des scénarios précis en utilisant ce type d’IA, c’est pourquoi ils se basent plutôt sur IA ayant des paramètres, qui simulent des comportements aléatoires, mais n’en sont pas vraiment. Simulent, car celles-ci ont des comportements prédéfinis et paramétrés, mais changeants au changement dans leur environnement mais toujours prédictibles, ceux-ci sont toujours basées sur les deux principes fondamentaux cités plus haut.
+
+~\par
+Une IA qui réagit aux émotions du joueur et construit des plans d’action selon ceux-ci peut sembler improbable, mais la recherche dans ce domaine avance rapidement.
+
+~\par
+En effet grâce à une technique appelée “génération procédurale” \parencite{generation}, popularisée grâce au jeu “No man’s sky”, cette IA permettait la création d’univers spatiaux totalement aléatoire mais cohérents.
+
+~\par
+Les recherches à partir de cette technique visent à réaliser des jeux entiers en “génération procédurale”, l’univers, les personnages, leurs attitudes vis-à-vis du joueur etc.
+
+~\par
+Les développeurs de jeux vidéo pourront donc créer, non seulement des univers procéduraux et aléatoires, mais aussi construire une expérience de jeu propre aux goûts de chaque joueur, qui s’améliorera au fil du temps que le joueur passe sur le jeu, ce qui lui permettra de s’alimenter de ses goûts et préférences et de les implémenter en temps réel \parencite{youtubeIA}.
+
+~\par
+Les jeux cités dans les sections \ref{red} et \ref{sims0} sont parmi les meilleurs dans l’implémentation d’agents autonomes (personnages non jouables) dans l’industrie du jeu vidéo. C’est aussi, en partie, ce qui fait leur grand succès auprès des joueurs, le fait que tout rappelle le monde réel.
+
+
+%\section{Analyse de jeux existants bénéficiant d’une IA complexe}
+
+\subsection{Red Dead Redemption 2}\label{red}
+
+Dans ce jeu doté d’immenses paysages sorti tout droit d’un western, le joueur peut parler à n’importe quel personnage en appuyant sur le déclencheur gauche et en sélectionnant une interaction positive ou négative. Celles-ci en pour conséquence des actions différentes à chaque fois, en fonction du contexte: les vêtements du joueur, les taches de sang, la boue, l’emplacement, ce que fait l’agent autonome au moment de la prise de contact, la côte d’honneur, la quantité d’alcool que le joueur a consommé, et plus encore \parencite{red}.
+
+
+~\par
+Comme on peut le voir ici, les actions des agents ne sont pas complètement aléatoires, elles sont programmées, mais ce qui fait leur force et donne l’illusion du “monde réel ”, c’est le nombre épatant de paramètres entrants en compte pour déterminer quelle action va entreprendre l’agent, un petit détail qui change dans leur environnement peut engendrer une modification dans le déroulement d’une situation (un cheval qui passe à une grande vitesse, un autre agent qui dit un gros mot etc.). 
+
+~\par
+Les émotions que possède chaque personnage non jouable ne sont pas nourries par une grande quantité de données comme on peut le trouver dans d’autres secteurs utilisant l’intelligence artificielle,  mais par une quantité de conditions qui déterminent les différents états émotionnels, ce qui rend les agents prédictibles et permet aux constructeurs de construire une histoire cohérente, avec une dose de mystère maîtrisée.
+
+~\par
+En plus de l’implémentation d’une IA complexe, une énorme quantité de gestes et d’animations subtiles l’accompagnent, ce qui élève le jeu entier à un niveau beaucoup plus réaliste.
+
+~\par
+Par exemple le fait que tous les dialogues se passent en temps réel dans le jeu plutôt que dans une liste d'options de dialogue sur un écran statique. C’est une nouvelle approche de l’interaction dans le jeu - déclenchée de la même manière que vous tirez avec une arme à feu sur un agent autonome - et vous donne l’illusion que tout est possible. Plutôt que d'interagir avec ce monde en tuant et en mutilant, Red Dead Redemption 2 donne des mots aussi puissants que des balles. 
+
+~\par
+Ou encore,  "si un témoin vous surprend en train de faire quelque chose, Arthur (le personnage joué par l’utilisateur) dit: " Ah, merde ... " car vous devez les pourchasser", ajoute David Hynd, programmeur en charge de l'IA. “Ou bien, si vous pénétrez dans un salon, l'IA peut s'arrêter dans sa tâche et la musique peut cesser de jouer - l'IA vous regardera un instant avant de revenir sur ses affaires. Ou pas, s'ils vous voient comme une menace. Et c’est incroyable de voir comment Arthur peut chanter et fredonner, ou comment on peut  transformer le cours des choses en interagissant avec les agents autonomes quand il se saoule”.
+
+~\par
+Je pense que ce sont les petits détails qui font que tout paraît si réaliste.
+
+
+
+
+\subsection{The Sims 4}\label{sims4}
+
+Le 2 septembre 2014, le studio Maxis d'Electronic Arts lancera The Sims 4. Comme toute suite, le jeu ressemblera à son vieil ami: on peut toujours créer nos propres “sims”, construire notre propre maison, déterminer notre propre vie et, espérons-le, ne pas tuer ni négliger notre propre avatar. Mais la technologie sous-jacente - les os et les nerfs qui maintiennent l’univers ensemble - fait actuellement l’objet d’une mise à niveau majeure pour la quatrième génération \parencite{simsArticle}.
+
+~\par
+L’une des avancées à consister à peaufiner le système de routage, ou la façon dont les sims naviguent. Après avoir étudié le comportement social humain, les développeurs ont rendu les sims moins gênants et plus crédibles. “Les sims peuvent maintenant franchir les portes sans rester coincés, mais il est extrêmement difficile d'y arriver" dit Pearson Ingebretson - Ingénieur logiciel pour the Sims 4. 
+
+~\par
+Au cœur de chaque jeu des sims se trouve son intelligence artificielle, son réseau infini de modèles (figure \ref{fig:sims}) et ses résultats possibles qui font tourner le monde en coulisses. Dans les jeux, l'intelligence artificielle fait généralement référence à la manière dont l'environnement, et en particulier les personnages non joueurs, interagissent avec le monde et le joueur. Cependant, la franchise Les Sims se distingue.
+
+\begin{figure}[th]
+\centering
+\includegraphics{Figures/sims.JPG}
+\decoRule
+\caption{Cette image visualise le potentiel des conséquences d'un changement de posture d'un Sim dans Les Sims 4}
+\label{fig:sims}
+\end{figure}
+
+
+~\par
+"Dans de nombreux autres jeux, l'IA est étrangère au joueur quant à la manière dont elle se comporte. L'IA commande aux personnages de faire des choses fondamentalement différentes de celles des joueurs ... Ils opèrent dans un monde différent avec des possibilités différentes", explique Ingebretson. “Dans Les Sims, si vous restez assis à regarder votre ordinateur pendant un moment, l'IA prendra le contrôle et contrôlera également les actions de vos sims. Cela signifie que notre IA  doit prendre des décisions plus crédibles afin que le cours de l’action reste cohérent “\parencite{simsArticle}.
+
+~\par
+Écouter Ingebretson qui décrit les tenants et les aboutissants de l’intelligence artificielle dans The Sims 4 ressemble à un cours de psychologie humaine. À la base, l'IA travaille avec l'interaction de deux mécanismes: les commodités et les courbes d'utilité. Les commodités représentent l'état interne d'un Sim, tandis qu'une courbe d'utilité dicte le désir d’un avatar à améliorer ses commodités. Chaque interaction ouvre une série d'améliorations possibles. "Par exemple, si un Sim boit une tasse de café, son énergie va monter mais sa vessie va baisser", dit Ingebretson. Comme dans le monde réel, tout est un compromis. Ainsi, lorsqu'il prend chaque décision, un Sim considère toutes les actions possibles, analyse leurs résultats, référence la courbe d'utilité et sélectionne la meilleure. Cependant, ces actions sont quelque peu aléatoires de par leur conception, de sorte que l'IA puisser donner l’illusion qu’elle est imprévisible.
+
+~\par
+Cet échange en une fraction de seconde entre la prise de contrôle de l’IA et du joueur est ce que Ingebretson appelle «autonomie», ou lorsqu'un sim est en pilote automatique. Dans les jeux précédents des Sims, l’autonomie était un système de départ et d’arrêt. Une fois qu'un sim a terminé avec une action, il s'exécute de manière autonome. Dans Les Sims 4, les développeurs ont amélioré l'efficacité de l'IA en créant une hiérarchie d'autonomie. "Au lieu de tout considérer dans le monde entier chaque fois qu'un Sim décide quoi faire, nous évaluons d'abord tous les produits de base et déterminons quels types d’actions sont les plus importantes pour le Sim", explique Ingebretson. "Cela nous permet d'éliminer de nombreuses possibilités." Cela signifie que les Sims deviennent plus rapides et plus efficaces pour prendre des décisions et peuvent effectuer plusieurs tâches plutôt que de suivre un script strict «d'abord ceci, ensuite cela» \parencite{simsArticle}.
+
+~\par
+Toutes ces améliorations et ces avancées rendent un jeu plus naturel, mais quand est-ce qu’un système d'intelligence artificielle devient-il trop efficace? "C'est un sujet intéressant que nous traitons dans chacun de ces projets, car nous pouvons continuer à rendre les Sims suffisamment intelligents pour mener leur propre vie", a déclaré Pearson. "Qu'est-ce qui est trop intelligent?"
+
+~\par
+
+Laissée à ses propres appareils parfaitement optimisés, l'IA pourrait facilement prendre le contrôle et jouer au jeu pour vous, laissant ainsi aux Sims effectuer un nombre anormal d'actions en même temps ou annuler l'interaction du joueur. L’équipe a introduit des seuils de retard et d’attention pour limiter artificiellement le système. "Il est impossible pour un cerveau humain de gérer autant de flux d'entrées", explique Ingebretson. "Pour les Sims, nous construisons un modèle de la vie humaine. Nous devons modéliser les fautes des gens ainsi que leur efficacité" \parencite{simsArticle}. 
+
+~\par
+Nous pouvons apercevoir que l'approche dans Les Sims 4 afin de rendre l’IA plus crédible est différente du cas précédent, même si les deux approches ont des similitudes dans la complexité de leur modèle, qui consiste à alimenter les personnages d’un grand nombre de conditions détaillées et en cascade ( un geste, une quantité d’alcool consommée, une intonation...), avec des scénarios différents pour chaque état, c’est tout ces détails qui donnent l’illusion de la réalité.
+
+~\par
+En plus de cela, Les Sims 4 propose un système tout à fait novateur, qui consiste en la prise de contrôle de l’IA du personnage joué par l’utilisateur lors des moments où celui-ci est au repos (quand le joueur laisse tourner le jeu sans y toucher). Mais celle-ci ne le fait pas n’importe comment, elle le fait tout en restant cohérente avec l’état précédent de l’agent, par exemple si le personnage est en train de boire de l’eau et que l’IA intervient et en prend le contrôle, elle le pousse à laver son verre, avant de l'essuyer de le ranger dans l’évier.
+
+~\par
+En plus de cela, les fautes des gens ainsi que leurs moments d'inattention et de faiblesse ont aussi été modélisés, non pas de manière directe, mais en introduisant des seuils de retards dans la succession des actions, afin que celles-ci aient l’air naturelles, et qu’elles ne ressemblent pas à un flot ininterrompu d’actions, comportement  qui n’est pas compréhensible par l’homme.
