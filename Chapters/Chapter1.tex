@@ -28,6 +28,37 @@ C'est la question à laquelle j'essaye de répondre lors de ce mémoire en appli
 L'objectif est donc d'utiliser des androrithmes (algorithmes calqués sur le modèle humain et nourris par ce dernier \parencite{humanityvstechnology}) et de les appliquer à différentes intelligences artificielles dans des jeux vidéo open-source. 
 
 
+\section{Ordinateurs et émotions}
+
+\subsection{Objectifs du mémoire}
+
+Ce mémoire a pour objectif de contribuer à rendre les agents autonomes plus crédibles aux yeux des êtres humains qui interagissent avec eux. En effet, à l’heure actuelle, les agents autonomes que l’on peut retrouver dans les différentes simulations de manière opérationnelle remplissent très bien leurs tâches quand il s’agit de tests d’équipements, de nouvelles tactiques, ou encore de traitement de grandes quantités de données visant à la prise de décision,  ce qui permet aux humains d’analyser les données résultantes de ces simulations et de les appliquer sur le terrain.
+
+~\par
+Le problème qui se pose dans l’état actuel, c’est que lorsque l'être humain est mis dans la boucle de ces simulations et interagit de manière directe avec ces agents, ceux-ci n’ont aucune crédibilité à ses yeux quant à la manière dont ils prennent telle ou telle décision, ou décident d’appliquer telle ou telle tactique, l’échange entre humain et machine peut vite devenir incompréhensible et aboutir à des résultats inattendus.
+
+~\par
+En effet les agents actuels procèdent de manière rationnelle pour faire un choix parmi une multitude de possibilités, ce choix est celui ayant acquis le plus de “points” ou “score le plus élevé” durant les différentes phases précédentes, il est mis au-dessus de la pile et est considéré comme “le choix de prédilection”. 
+
+~\par
+Or l'être humain n’utilise que très rarement ce type de prise de décision, les NDM (section \ref{ndm}) ou prise de décision dans un milieu naturel prouvent que les choix rationnels ne s'appliquent pas aux paramètres du monde réel en raison d'un certain nombre de facteurs qui rendent leur application impossible ou difficile. 
+
+
+
+%-----------------------------------
+%	SUBSECTION 1
+%-----------------------------------
+\subsection{Objectif concret (framework)}
+
+La solution que je propose est un framework développé en C\# sur le logiciel Unity, logiciel de création de jeux vidéo, cette solution modélise un agent autonome auquel une succession de paramètres de prises de décisions en milieu naturel est appliquée, il sera ensuite confronté à des facteurs et situations inspirées du monde réel devant lesquels il devra faire des choix “naturels”.
+
+~\par
+Cette solution a une valeur ajoutée par rapport à l'existant; en effet, dans le monde du jeu vidéo, la remarque la plus fréquente des joueurs est que les agents auxquels ils se retrouvent confrontés lors de leurs sessions de jeu sont très loin d’atteindre le réalisme des joueurs humains, et cela même si la difficulté sélectionnée est la plus élevée.
+
+~\par
+En effet, le paramètre de difficulté ne fait que rendre l’adversaire plus rapide, plus endurant et moins sensible aux dommages corporels,  mais ne lui acquiert en aucun cas un comportement plus humain, de peur, de courage ou encore de stratégie, ce qui rend l'expérience de jeu moins crédible et moins intéressante. Cela explique aussi le succès phénoménal des jeux en ligne, où dans ce cas, le joueur est confronté à un autre être humain, qu’il peut comprendre, déterminer ses mouvements et ses choix selon les situations et la configuration de l’instant. Une “intelligence artificielle” sophistiquée représente donc un facteur marketing clé pour les entreprises de jeux vidéo. 
+
+
 
 \section{Prérequis}
 
